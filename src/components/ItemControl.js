@@ -9,6 +9,8 @@ class ItemControl extends Component {
 
   handleFormSubmit = (item) => {
     console.log(item);
+
+    this.setState({itemList: [...this.state.itemList, item]});
   }
 
   render() {

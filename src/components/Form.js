@@ -20,21 +20,21 @@ function Form(props) {
     <div className="Form">
       <form id={v4()} onSubmit={handleSubmit}>
         <div className="inputField">
-          <label>Item Name: <input type="text" name="itemName" id="itemName" /></label>
+          <label>Item Name: <input type="text" name="itemName" id="itemName" defaultValue="Green Tea" /></label>
         </div>
         <div className="inputField">
-          <label>Description: <input type="text" name="description" id="description" /></label>
+          <label>Description: <input type="text" name="description" id="description" defaultValue="Healthy and Delicious" /></label>
         </div>
         <div className="inputField">
-          <label>Price: <input type="number" name="price" price="price" /></label>
+          <label>Price: <input type="number" name="price" price="price" defaultValue="23" /></label>
         </div>
         <div className="inputField">
-          <label>Available: <input type="number" name="available" price="available" /></label>
+          <label>Available: <input type="number" name="available" price="available" defaultValue="100" /></label>
         </div>
         <button type="submit">Add Item</button>
       </form>
     </div>
-  )
+  );
 }
 
 export default Form;
