@@ -14,8 +14,8 @@ class ItemControl extends Component {
   render() {
     return (
       <div className="ItemControl">
-        {/* <Form handleSubmitCallback={this.handleFormSubmit} /> */}
-        <Form />
+        <Form handleSubmitCallback={this.handleFormSubmit} />
+        {/* <Form /> */}
         {/* <AddItemForm /> */}
       </div>
     )

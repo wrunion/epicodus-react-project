@@ -9,7 +9,12 @@ function Form(props) {
     // const { itemName, description, available, price, id} = e.target.value;
     // console.log(itemName, description, available, price, id);
     console.log(e.target.itemName.value, e.target.description.value, e.target.available.value, e.target.price.value, e.target.id);
-    // handleSubmitCallback({itemName, description, available, price, id});
+    props.handleSubmitCallback({
+      itemName: e.target.itemName.value, 
+      description: e.target.description.value, 
+      available: parseInt(e.target.available.value), 
+      price: parseInt(e.target.price.value), 
+      id: e.target.id});
   } 
 
   // function handleSubmit(event) {
