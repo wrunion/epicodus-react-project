@@ -8,7 +8,6 @@ function Form(props) {
     e.preventDefault();
     // const { itemName, description, available, price, id} = e.target.value;
     // console.log(itemName, description, available, price, id);
-    console.log(e.target.itemName.value, e.target.description.value, e.target.available.value, e.target.price.value, e.target.id);
     props.handleSubmitCallback({
       itemName: e.target.itemName.value, 
       description: e.target.description.value, 
@@ -17,18 +16,21 @@ function Form(props) {
       id: e.target.id});
   } 
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   props.handleSubmitCallback({names: event.target.names.value, location: event.target.location.value, issue: event.target.issue.value, id: v4()});
-  // }
-
   return (
     <div className="Form">
       <form id={v4()} onSubmit={handleSubmit}>
-        <input type="text" name="itemName" id="itemName" />
-        <input type="text" name="description" id="description" />
-        <input type="number" name="available" price="available" />
-        <input type="number" name="price" price="price" />
+        <div className="inputField">
+          <label>Item Name: <input type="text" name="itemName" id="itemName" /></label>
+        </div>
+        <div className="inputField">
+          <label>Description: <input type="text" name="description" id="description" /></label>
+        </div>
+        <div className="inputField">
+          <label>Price: <input type="number" name="price" price="price" /></label>
+        </div>
+        <div className="inputField">
+          <label>Available: <input type="number" name="available" price="available" /></label>
+        </div>
         <button type="submit">Add Item</button>
       </form>
     </div>
