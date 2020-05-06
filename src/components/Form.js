@@ -17,7 +17,7 @@ function Form(props) {
         <input type="text" name="description" id="description" />
         <input type="number" name="available" price="available" />
         <input type="number" name="price" price="price" />
-        <button type="submit" onClick={handleSubmit} id={v4()}></button>
+        <button type="submit" onSubmit={handleSubmit} id={v4()}>Add Item</button>
       </form>
     </div>
   )
