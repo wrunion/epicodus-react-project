@@ -6,8 +6,9 @@ function Form(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const { itemName, description, available, price, id} = e.target;
-    console.log({itemName, description, available, price, id});
+    // const { itemName, description, available, price, id} = e.target.value;
+    // console.log(itemName, description, available, price, id);
+    console.log(e.target.itemName.value, e.target.description.value, e.target.available.value, e.target.price.value, e.target.id);
     // handleSubmitCallback({itemName, description, available, price, id});
   } 
 
