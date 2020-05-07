@@ -60,13 +60,14 @@ class ItemControl extends Component {
   }
 
   findItemById = (id) => {
-    const item = this.state.itemList.filter(item => item.id === id)[0].id;
+    const item = this.state.itemList.filter(item => item.id === id)[0];
     return item;
   }
 
   showDetailView = (id) => {
     const item = this.findItemById(id);
-    this.setState({selectedItem: item, detailView: true});
+    this.setState({selectedItem: item});
+    console.log(item);
     return item;
   }
 
@@ -114,14 +115,14 @@ class ItemControl extends Component {
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
         <div className="ItemView">
-          {this.state.showDetails === true ? 
+          {/* {this.state.showDetails === true ? 
 
           this.state.itemList.map(item =>
             item.id === this.state.itemSelected ?
             <ItemDetailView item = {item}
               onCancelClick={this.handleCancelClick} />
-            :
-            <ItemDisplayMode 
+            : */}
+            {/* <ItemDisplayMode 
               key={item.id}
               id={item.id}  
               name={item.itemName}
@@ -133,7 +134,7 @@ class ItemControl extends Component {
               handleAddItemClick={this.displayForm}
               handleDetailClick={this.showDetailView}
               />)
-          : null} 
+          : null}  */}
         <button onClick={this.displayForm}>Add Item</button>
         {this.state.itemList.map(item =>
           <ItemDisplayMode 
@@ -146,7 +147,8 @@ class ItemControl extends Component {
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
             handleAddItemClick={this.displayForm}
-            handleDetailClick={this.showDetailView}
+            selectedItem={this.state.selectedItem}
+            handleDetailCallback={this.showDetailView}
             />)}
         </div>
       );
