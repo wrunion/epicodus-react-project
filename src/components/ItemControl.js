@@ -56,6 +56,22 @@ class ItemControl extends Component {
     this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
   }
 
+  findItemById = (id) => {
+    const item = this.state.itemList.filter(item => item.id ===id)[0];
+    console.log(item);
+  }
+  // showDetailView = (id) => {
+  //   return (  
+  //   <div className="ShowDetails">
+  //     <h3>{props.name}</h3>
+  //     <p><em>{props.description}</em></p>
+  //     <p>Available: {props.available} | Price: {props.price}</p>
+  //   </div>)
+  // }
+   
+
+
+
   purchaseItem = (id) => {
     this.setState({itemList: this.state.itemList.map(item => {
       if (item.id === id) {
@@ -105,6 +121,7 @@ class ItemControl extends Component {
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
             handleAddItemClick={this.displayForm}
+            handleDetailClick={this.findItemById}
             />)}
         </div>
       );
