@@ -1,7 +1,10 @@
 .ItemDetailView {
-  border: 1px lightgrey solid;
-  border-radius: 5px;
   font-size: 110%;
+}
+
+.ItemDetailView button {
+  font-size: 75%;
+  border-radius: 5px;
 }
 
 .App {
@@ -9,6 +12,14 @@
   border: 2px rgb(25, 173, 25) solid;
   border-radius: 5px;
   margin: 1.5em;
+}
+
+.Form {
+  padding: 10px;
+}
+
+.Form div {
+  padding-bottom: 5px;
 }
 
 button {
