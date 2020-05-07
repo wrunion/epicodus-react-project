@@ -5,6 +5,11 @@
   margin: 1.5em;
 }
 
+.App a:link, a:visited {
+  text-decoration: none;
+  color: darkgrey;
+}
+
 .Form {
   padding: 10px;
 }
@@ -34,6 +39,7 @@ button {
 .Footer {
   color: darkgrey;
   margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 body {

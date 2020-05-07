@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemControl from './ItemControl';
+import Footer from './Footer';
 import './App.css';
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="App">
       <div className="Header"><h1>AunTea's Organics</h1></div>
       <ItemControl />
-      <div className="Footer"><p>Copyright (c) 2020 AunTea's Organics</p></div>
+      <Footer />
     </div>
   );
 }
