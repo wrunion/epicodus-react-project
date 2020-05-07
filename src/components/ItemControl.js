@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
+import ItemDetailView from './ItemDetailView';
 
 class ItemControl extends Component {
   state = {
@@ -40,7 +41,9 @@ class ItemControl extends Component {
       id: 5
     }
   ],
-    formShowing: false
+    formShowing: false,
+    detailView: true,
+    selectedItem: null
   }
 
   displayForm = () => {
@@ -57,24 +60,16 @@ class ItemControl extends Component {
   }
 
   findItemById = (id) => {
-    const item = this.state.itemList.filter(item => item.id ===id)[0];
+    const item = this.state.itemList.filter(item => item.id === id)[0].id;
     return item;
   }
 
   showDetailView = (id) => {
     const item = this.findItemById(id);
-    console.log(item);
-    return (  
-    <div className="ShowDetails">
-      <h3>{item.itemName}</h3>
-      <p><em>{item.description}</em></p>
-      <p>Available: {item.available} | Price: {item.price}</p>
-    </div>);
+    this.setState({selectedItem: item, detailView: true});
+    return item;
   }
    
-
-
-
   purchaseItem = (id) => {
     this.setState({itemList: this.state.itemList.map(item => {
       if (item.id === id) {
@@ -112,6 +107,25 @@ class ItemControl extends Component {
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
         <div className="ItemView">
+          {this.state.showDetails === true ? 
+
+          this.state.itemList.map(item =>
+            item.id === this.state.itemSelected ?
+            <ItemDetailView item = {item} />
+            :
+            <ItemDisplayMode 
+              key={item.id}
+              id={item.id}  
+              name={item.itemName}
+              description={item.description}
+              available={item.available}
+              price={item.price}
+              deleteCallback={this.deleteItem}
+              purchaseCallback={this.purchaseItem}
+              handleAddItemClick={this.displayForm}
+              handleDetailClick={this.showDetailView}
+              />)
+          : null} 
         <button onClick={this.displayForm}>Add Item</button>
         {this.state.itemList.map(item =>
           <ItemDisplayMode 
