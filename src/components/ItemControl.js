@@ -79,7 +79,7 @@ class ItemControl extends Component {
           price={item.price}
           handleDeleteClick={this.handleDeleteClick}
           handlePurchaseClick={this.handlePurchaseClick}
-          handleAddItemClick={this.handleAddItemClick}
+          handleAddItemClick={this.displayForm}
           />)
     );
     } else {
