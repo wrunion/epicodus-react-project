@@ -13,6 +13,10 @@
   padding-bottom: 5px;
 }
 
+.ItemDisplayMode {
+  padding-bottom: 1em;;
+}
+
 .ItemDetailView {
   font-size: 110%;
 }
