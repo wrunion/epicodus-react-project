@@ -42,7 +42,6 @@ class ItemControl extends Component {
     }
   ],
     formShowing: false,
-    detailView: true,
     itemSelected: null
   }
 
@@ -72,7 +71,7 @@ class ItemControl extends Component {
   }
 
   handleCancelClick = () => {
-    this.setState({detailView: false});
+    this.setState({formShowing: false, itemSelected: null});
   }
    
   purchaseItem = (id) => {
@@ -97,13 +96,16 @@ class ItemControl extends Component {
       const item = this.findItemById(selectedItemId);
       return (
         <div className="ItemDetailView">
-          <ItemDetailView item ={item}/>
+          <ItemDetailView 
+            item={item}
+            handleCancelClick={this.handleCancelClick}/>
         </div>
       );
     } else if (this.state.formShowing) {
       return (
         <React.Fragment>
-          <Form handleSubmitCallback={this.handleFormSubmit} />
+          <Form handleSubmitCallback={this.handleFormSubmit} 
+          handleCancelClick={this.handleCancelClick} />
           {this.state.itemList.map(item =>
           <ItemDisplayMode 
             key={item.id}

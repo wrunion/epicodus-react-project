@@ -9,6 +9,7 @@ const ItemDetailView = (props) => {
       <p><em>{item.description}</em></p>
       <p>Available: {item.available} | Price: {item.price}</p>
       <p><em>Made in Oregon</em></p>
+      <button onClick={props.handleCancelClick}>Return to Tea List</button>
     </div>
   );
 }
