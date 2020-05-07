@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ItemDetailView = (props) => {
   const { item } = props;
@@ -13,5 +14,10 @@ const ItemDetailView = (props) => {
     </div>
   );
 }
+
+ItemDetailView.propTypes = {
+  item: PropTypes.object,
+  handleCancelClick: PropTypes.func
+} 
 
 export default ItemDetailView;
