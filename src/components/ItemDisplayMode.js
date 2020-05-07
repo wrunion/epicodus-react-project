@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ItemDisplayMode = (props) => {
 
@@ -25,5 +26,15 @@ const ItemDisplayMode = (props) => {
     </div>
   );
 }
+
+ItemDisplayMode.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  available: PropTypes.number,
+  price: PropTypes.number,
+  purchaseCallback: PropTypes.func,
+  deleteCallback: PropTypes.func,
+  handleDetailCallback: PropTypes.func
+} 
 
 export default ItemDisplayMode;
