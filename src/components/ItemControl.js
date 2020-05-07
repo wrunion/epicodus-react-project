@@ -69,6 +69,10 @@ class ItemControl extends Component {
     this.setState({selectedItem: item, detailView: true});
     return item;
   }
+
+  handleCancelClick = () => {
+    this.setState({detailView: false});
+  }
    
   purchaseItem = (id) => {
     this.setState({itemList: this.state.itemList.map(item => {
@@ -99,8 +103,11 @@ class ItemControl extends Component {
             description={item.description}
             available={item.available}
             price={item.price}
+            detailView={this.state.detailView}
+            selectedItem={this.state.selectedItem}
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
+            handleDetailCallback={this.showDetailView}
             />)}
         </React.Fragment>
       );
@@ -111,7 +118,8 @@ class ItemControl extends Component {
 
           this.state.itemList.map(item =>
             item.id === this.state.itemSelected ?
-            <ItemDetailView item = {item} />
+            <ItemDetailView item = {item}
+              onCancelClick={this.handleCancelClick} />
             :
             <ItemDisplayMode 
               key={item.id}
