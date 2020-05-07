@@ -93,10 +93,11 @@ class ItemControl extends Component {
 
   render() {
     if (this.state.itemSelected !== null) {
+      const selectedItemId = this.state.itemSelected;
+      const item = this.findItemById(selectedItemId);
       return (
         <div className="ItemDetailView">
-          <h1>ItemDetailView</h1>
-          <h3>Item selected: {this.state.itemSelected}</h3>
+          <ItemDetailView item ={item}/>
         </div>
       );
     } else if (this.state.formShowing) {
