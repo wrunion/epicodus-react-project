@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/animal-flashcards/static/css/main.4d119171.chunk.css",
+    "main.js": "/animal-flashcards/static/js/main.4166a478.chunk.js",
+    "main.js.map": "/animal-flashcards/static/js/main.4166a478.chunk.js.map",
+    "runtime-main.js": "/animal-flashcards/static/js/runtime-main.51400913.js",
+    "runtime-main.js.map": "/animal-flashcards/static/js/runtime-main.51400913.js.map",
+    "static/js/2.5c1561d2.chunk.js": "/animal-flashcards/static/js/2.5c1561d2.chunk.js",
+    "static/js/2.5c1561d2.chunk.js.map": "/animal-flashcards/static/js/2.5c1561d2.chunk.js.map",
+    "index.html": "/animal-flashcards/index.html",
+    "precache-manifest.ecdd42d384e5743f8ee2ea60b100c644.js": "/animal-flashcards/precache-manifest.ecdd42d384e5743f8ee2ea60b100c644.js",
+    "service-worker.js": "/animal-flashcards/service-worker.js",
+    "static/css/main.4d119171.chunk.css.map": "/animal-flashcards/static/css/main.4d119171.chunk.css.map",
+    "static/js/2.5c1561d2.chunk.js.LICENSE.txt": "/animal-flashcards/static/js/2.5c1561d2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.51400913.js",
+    "static/js/2.5c1561d2.chunk.js",
+    "static/css/main.4d119171.chunk.css",
+    "static/js/main.4166a478.chunk.js"
+  ]
+}
