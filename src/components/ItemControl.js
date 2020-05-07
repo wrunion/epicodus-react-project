@@ -58,16 +58,19 @@ class ItemControl extends Component {
 
   findItemById = (id) => {
     const item = this.state.itemList.filter(item => item.id ===id)[0];
-    console.log(item);
+    return item;
   }
-  // showDetailView = (id) => {
-  //   return (  
-  //   <div className="ShowDetails">
-  //     <h3>{props.name}</h3>
-  //     <p><em>{props.description}</em></p>
-  //     <p>Available: {props.available} | Price: {props.price}</p>
-  //   </div>)
-  // }
+
+  showDetailView = (id) => {
+    const item = this.findItemById(id);
+    console.log(item);
+    return (  
+    <div className="ShowDetails">
+      <h3>{item.itemName}</h3>
+      <p><em>{item.description}</em></p>
+      <p>Available: {item.available} | Price: {item.price}</p>
+    </div>);
+  }
    
 
 
@@ -121,7 +124,7 @@ class ItemControl extends Component {
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
             handleAddItemClick={this.displayForm}
-            handleDetailClick={this.findItemById}
+            handleDetailClick={this.showDetailView}
             />)}
         </div>
       );
