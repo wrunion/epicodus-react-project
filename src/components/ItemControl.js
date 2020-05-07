@@ -53,11 +53,11 @@ class ItemControl extends Component {
     this.setState({itemList: [...this.state.itemList, item], formShowing: false});
   }
   
-  handleDeleteClick = () => {
-
+  deleteItem = (id) => {
+    this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
   }
 
-  handlePurchaseClick = () => {
+  purchaseItem = () => {
 
   }
 
@@ -77,7 +77,7 @@ class ItemControl extends Component {
           description={item.description}
           available={item.available}
           price={item.price}
-          handleDeleteClick={this.handleDeleteClick}
+          deleteCallback={this.deleteItem}
           handlePurchaseClick={this.handlePurchaseClick}
           handleAddItemClick={this.displayForm}
           />)
