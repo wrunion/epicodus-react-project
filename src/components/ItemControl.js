@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import Item from './Item';
 import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
 
@@ -73,12 +72,24 @@ class ItemControl extends Component {
     })});
   }
 
-
-
   render() {
     if (this.state.formShowing) {
       return (
-        <Form handleSubmitCallback={this.handleFormSubmit} />
+        <React.Fragment>
+          <Form handleSubmitCallback={this.handleFormSubmit} />
+          {this.state.itemList.map(item =>
+          <ItemDisplayMode 
+            key={item.id}
+            id={item.id}  
+            name={item.itemName}
+            description={item.description}
+            available={item.available}
+            price={item.price}
+            deleteCallback={this.deleteItem}
+            purchaseCallback={this.purchaseItem}
+            handleAddItemClick={this.displayForm}
+            />)}
+        </React.Fragment>
       );
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
