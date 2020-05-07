@@ -58,8 +58,40 @@ class ItemControl extends Component {
   }
 
   purchaseItem = (id) => {
-
+    this.setState({itemList: this.state.itemList.map(item => {
+      if (item.id === id) {
+        return {
+          itemName: item.itemName,
+          description: item.description,
+          available: item.available - 1,
+          price: item.price, 
+          id: item.id
+        } 
+      } else {
+        return item;
+      }
+    })});
   }
+
+  // subtractOneFromInventory = (e) => {
+  //   const id = e.target.id;
+
+  //   const newItemArray = this.state.itemArray.map(item => {
+  //     if (item.id === id) {
+  //       return {
+  //         name: item.name,
+  //         description: item.description,
+  //         available: item.available - 1,
+  //         price: item.price, 
+  //         id: item.id
+  //       } 
+  //     } else {
+  //       return item;
+  //     }
+  //   })
+      
+  //   this.setState({ itemArray: newItemArray })
+  // };
 
   render() {
 
