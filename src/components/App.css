@@ -1,0 +1,38 @@
+.ItemDetailView {
+  border: 1px lightgrey solid;
+  border-radius: 5px;
+  font-size: 110%;
+}
+
+.App {
+  text-align: center;
+  border: 2px rgb(25, 173, 25) solid;
+  border-radius: 5px;
+  margin: 1.5em;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.6fr 2fr 0.4fr;
+  gap: 1px 1px;
+  grid-template-areas: "App-Header App-Header App-Header" "App-Side-Bar App-Item-Display App-Item-Display" "App-Footer App-Footer App-Footer";
+  height: 100vh;
+}
+
+.App-Item-Display { grid-area: App-Item-Display; }
+
+.App-Side-Bar { grid-area: App-Side-Bar; }
+
+.App-Header { grid-area: App-Header; }
+
+.App-Footer { grid-area: App-Footer; }
+
+.Footer {
+  color: darkgrey;
+  margin-top: 1.5em;
+}
