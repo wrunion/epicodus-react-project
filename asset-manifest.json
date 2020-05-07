@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/animal-flashcards/static/css/main.4d119171.chunk.css",
-    "main.js": "/animal-flashcards/static/js/main.4166a478.chunk.js",
-    "main.js.map": "/animal-flashcards/static/js/main.4166a478.chunk.js.map",
-    "runtime-main.js": "/animal-flashcards/static/js/runtime-main.51400913.js",
-    "runtime-main.js.map": "/animal-flashcards/static/js/runtime-main.51400913.js.map",
-    "static/js/2.5c1561d2.chunk.js": "/animal-flashcards/static/js/2.5c1561d2.chunk.js",
-    "static/js/2.5c1561d2.chunk.js.map": "/animal-flashcards/static/js/2.5c1561d2.chunk.js.map",
-    "index.html": "/animal-flashcards/index.html",
-    "precache-manifest.ecdd42d384e5743f8ee2ea60b100c644.js": "/animal-flashcards/precache-manifest.ecdd42d384e5743f8ee2ea60b100c644.js",
-    "service-worker.js": "/animal-flashcards/service-worker.js",
-    "static/css/main.4d119171.chunk.css.map": "/animal-flashcards/static/css/main.4d119171.chunk.css.map",
-    "static/js/2.5c1561d2.chunk.js.LICENSE.txt": "/animal-flashcards/static/js/2.5c1561d2.chunk.js.LICENSE.txt"
+    "main.css": "/epicodus-react-project/static/css/main.4d119171.chunk.css",
+    "main.js": "/epicodus-react-project/static/js/main.46f056b2.chunk.js",
+    "main.js.map": "/epicodus-react-project/static/js/main.46f056b2.chunk.js.map",
+    "runtime-main.js": "/epicodus-react-project/static/js/runtime-main.c4a759a1.js",
+    "runtime-main.js.map": "/epicodus-react-project/static/js/runtime-main.c4a759a1.js.map",
+    "static/js/2.5c1561d2.chunk.js": "/epicodus-react-project/static/js/2.5c1561d2.chunk.js",
+    "static/js/2.5c1561d2.chunk.js.map": "/epicodus-react-project/static/js/2.5c1561d2.chunk.js.map",
+    "index.html": "/epicodus-react-project/index.html",
+    "precache-manifest.52e84511a2f41857d3f6199790f74717.js": "/epicodus-react-project/precache-manifest.52e84511a2f41857d3f6199790f74717.js",
+    "service-worker.js": "/epicodus-react-project/service-worker.js",
+    "static/css/main.4d119171.chunk.css.map": "/epicodus-react-project/static/css/main.4d119171.chunk.css.map",
+    "static/js/2.5c1561d2.chunk.js.LICENSE.txt": "/epicodus-react-project/static/js/2.5c1561d2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.51400913.js",
+    "static/js/runtime-main.c4a759a1.js",
     "static/js/2.5c1561d2.chunk.js",
     "static/css/main.4d119171.chunk.css",
-    "static/js/main.4166a478.chunk.js"
+    "static/js/main.46f056b2.chunk.js"
   ]
 }
