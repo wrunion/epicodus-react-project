@@ -12,14 +12,11 @@ _An interactive menu for a fictional tea shop, powered by React. Created to prac
 
 ### Instructions
 
-<!-- * View the deployed app [here](). -->
 * ```Git clone``` [this repo](https://github.com/wrunion/epicodus-react-project.git) to your local machine.
 * CD into the project folder, and run ```npm install```. This will give you all the node modules you need to run the app.
 * Run ```npm start``` to spin up a local server.
 * Open the repo in the code editor of your choice, and make changes as you wish.
 * Edit and enjoy!
-
-
 
 ### Technologies Used
 * HTML/CSS/JavaScript
