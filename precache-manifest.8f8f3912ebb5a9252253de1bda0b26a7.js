@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d23f95944ce48ff6888a5b6ed504fd7",
+    "revision": "fd540a2e8c3ff70484b7136fd9c3a049",
     "url": "/epicodus-react-project/index.html"
   },
   {
-    "revision": "01bad21639d3ed231d62",
-    "url": "/epicodus-react-project/static/css/main.fa6d66f5.chunk.css"
+    "revision": "ed2e016af12b6af2f4f9",
+    "url": "/epicodus-react-project/static/css/main.a40d2d66.chunk.css"
   },
   {
     "revision": "3f7a949069d58db2e0f8",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/epicodus-react-project/static/js/2.5c1561d2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "01bad21639d3ed231d62",
-    "url": "/epicodus-react-project/static/js/main.46f056b2.chunk.js"
+    "revision": "ed2e016af12b6af2f4f9",
+    "url": "/epicodus-react-project/static/js/main.644432a9.chunk.js"
   },
   {
     "revision": "2a1fa263a178e4359938",
