@@ -62,7 +62,7 @@ class ItemControl extends Component {
         return {
           itemName: item.itemName,
           description: item.description,
-          available: item.available - 1,
+          available: item.available >= 1 ?  item.available - 1 : 0,
           price: item.price, 
           id: item.id
         } 
@@ -87,7 +87,6 @@ class ItemControl extends Component {
             price={item.price}
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
-            handleAddItemClick={this.displayForm}
             />)}
         </React.Fragment>
       );

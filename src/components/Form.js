@@ -26,10 +26,10 @@ function Form(props) {
           <label>Description: <input type="text" name="description" id="description" defaultValue="Healthy and Delicious" /></label>
         </div>
         <div className="inputField">
-          <label>Price: <input type="number" name="price" price="price" defaultValue="23" /></label>
+          <label>Price: <input type="number" name="price" price="price" defaultValue="23" min={0}/></label>
         </div>
         <div className="inputField">
-          <label>Available: <input type="number" name="available" price="available" defaultValue="100" /></label>
+          <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" /></label>
         </div>
         <button type="submit">Add Item</button>
       </form>

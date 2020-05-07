@@ -17,7 +17,6 @@ const ItemDisplayMode = (props) => {
       <p>Available: {props.available} | Price: {props.price}</p>
       <button id={props.id} onClick={() => purchaseItem(props.id)}>Purchase</button>
       <button id={props.id} onClick={() => handleDeleteClick(props.id)}>Delete</button>
-      <button onClick={props.handleAddItemClick}>Add Item</button>
     </div>
   );
 }
