@@ -43,7 +43,7 @@ class ItemControl extends Component {
   ],
     formShowing: false,
     detailView: true,
-    selectedItem: null
+    itemSelected: null
   }
 
   displayForm = () => {
@@ -66,7 +66,7 @@ class ItemControl extends Component {
 
   showDetailView = (id) => {
     const item = this.findItemById(id);
-    this.setState({selectedItem: item});
+    this.setState({itemSelected: item.id});
     console.log(item);
     return item;
   }
@@ -92,7 +92,14 @@ class ItemControl extends Component {
   }
 
   render() {
-    if (this.state.formShowing) {
+    if (this.state.itemSelected !== null) {
+      return (
+        <div className="ItemDetailView">
+          <h1>ItemDetailView</h1>
+          <h3>Item selected: {this.state.itemSelected}</h3>
+        </div>
+      );
+    } else if (this.state.formShowing) {
       return (
         <React.Fragment>
           <Form handleSubmitCallback={this.handleFormSubmit} />
@@ -115,26 +122,6 @@ class ItemControl extends Component {
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
         <div className="ItemView">
-          {/* {this.state.showDetails === true ? 
-
-          this.state.itemList.map(item =>
-            item.id === this.state.itemSelected ?
-            <ItemDetailView item = {item}
-              onCancelClick={this.handleCancelClick} />
-            : */}
-            {/* <ItemDisplayMode 
-              key={item.id}
-              id={item.id}  
-              name={item.itemName}
-              description={item.description}
-              available={item.available}
-              price={item.price}
-              deleteCallback={this.deleteItem}
-              purchaseCallback={this.purchaseItem}
-              handleAddItemClick={this.displayForm}
-              handleDetailClick={this.showDetailView}
-              />)
-          : null}  */}
         <button onClick={this.displayForm}>Add Item</button>
         {this.state.itemList.map(item =>
           <ItemDisplayMode 
