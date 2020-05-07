@@ -1,13 +1,11 @@
 import React from 'react'
 import {v4 } from 'uuid';
+import PropTypes from 'prop-types';
 
 function Form(props) {
-  // const { handleSubmitCallback } = props;
 
   function handleSubmit(e) {
     e.preventDefault();
-    // const { itemName, description, available, price, id} = e.target.value;
-    // console.log(itemName, description, available, price, id);
     props.handleSubmitCallback({
       itemName: e.target.itemName.value, 
       description: e.target.description.value, 
@@ -32,9 +30,15 @@ function Form(props) {
           <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" /></label>
         </div>
         <button type="submit">Add Item</button>
+        <button type="button" onClick={props.handleCancelClick}>Cancel</button>
       </form>
     </div>
   );
 }
+
+Form.propTypes = {
+  handleSubmitCallback: PropTypes.func,
+  handleCancelClick: PropTypes.func
+};
 
 export default Form;

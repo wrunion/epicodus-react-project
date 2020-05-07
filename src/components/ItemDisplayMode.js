@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ItemDisplayMode = (props) => {
 
@@ -11,17 +12,12 @@ const ItemDisplayMode = (props) => {
   }
 
   function showDetailView(id) {
-    props.handleDetailClick(id);
+    props.handleDetailCallback(id);
   }
-
-  // function closeDetails(id) {
-  //   return(
-
-  // }
 
   return (
     <div className="ItemDisplayMode" key={props.id}>
-      <h3>{props.name}</h3>
+    <h3>{props.name}</h3>
       <p><em>{props.description}</em></p>
       <p>Available: {props.available} | Price: {props.price}</p>
       <button id={props.id} onClick={() => purchaseItem(props.id)}>Purchase</button>
@@ -30,5 +26,15 @@ const ItemDisplayMode = (props) => {
     </div>
   );
 }
+
+ItemDisplayMode.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  available: PropTypes.number,
+  price: PropTypes.number,
+  purchaseCallback: PropTypes.func,
+  deleteCallback: PropTypes.func,
+  handleDetailCallback: PropTypes.func
+} 
 
 export default ItemDisplayMode;

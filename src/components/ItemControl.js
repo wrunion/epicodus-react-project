@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
+import ItemDetailView from './ItemDetailView';
 
 class ItemControl extends Component {
   state = {
@@ -40,7 +41,8 @@ class ItemControl extends Component {
       id: 5
     }
   ],
-    formShowing: false
+    formShowing: false,
+    itemSelected: null
   }
 
   displayForm = () => {
@@ -57,24 +59,21 @@ class ItemControl extends Component {
   }
 
   findItemById = (id) => {
-    const item = this.state.itemList.filter(item => item.id ===id)[0];
+    const item = this.state.itemList.filter(item => item.id === id)[0];
     return item;
   }
 
   showDetailView = (id) => {
     const item = this.findItemById(id);
+    this.setState({itemSelected: item.id});
     console.log(item);
-    return (  
-    <div className="ShowDetails">
-      <h3>{item.itemName}</h3>
-      <p><em>{item.description}</em></p>
-      <p>Available: {item.available} | Price: {item.price}</p>
-    </div>);
+    return item;
+  }
+
+  handleCancelClick = () => {
+    this.setState({formShowing: false, itemSelected: null});
   }
    
-
-
-
   purchaseItem = (id) => {
     this.setState({itemList: this.state.itemList.map(item => {
       if (item.id === id) {
@@ -92,10 +91,21 @@ class ItemControl extends Component {
   }
 
   render() {
-    if (this.state.formShowing) {
+    if (this.state.itemSelected !== null) {
+      const selectedItemId = this.state.itemSelected;
+      const item = this.findItemById(selectedItemId);
+      return (
+        <div className="ItemDetailView">
+          <ItemDetailView 
+            item={item}
+            handleCancelClick={this.handleCancelClick}/>
+        </div>
+      );
+    } else if (this.state.formShowing) {
       return (
         <React.Fragment>
-          <Form handleSubmitCallback={this.handleFormSubmit} />
+          <Form handleSubmitCallback={this.handleFormSubmit} 
+          handleCancelClick={this.handleCancelClick} />
           {this.state.itemList.map(item =>
           <ItemDisplayMode 
             key={item.id}
@@ -104,8 +114,11 @@ class ItemControl extends Component {
             description={item.description}
             available={item.available}
             price={item.price}
+            detailView={this.state.detailView}
+            selectedItem={this.state.selectedItem}
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
+            handleDetailCallback={this.showDetailView}
             />)}
         </React.Fragment>
       );
@@ -124,7 +137,8 @@ class ItemControl extends Component {
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
             handleAddItemClick={this.displayForm}
-            handleDetailClick={this.showDetailView}
+            selectedItem={this.state.selectedItem}
+            handleDetailCallback={this.showDetailView}
             />)}
         </div>
       );
