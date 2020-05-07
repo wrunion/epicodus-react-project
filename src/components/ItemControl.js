@@ -50,7 +50,7 @@ class ItemControl extends Component {
 
   handleFormSubmit = (item) => {
     console.log(item);
-    this.setState({itemList: [...this.state.itemList, item], formShowing: false});
+    this.setState({itemList: [item, ...this.state.itemList], formShowing: false});
   }
   
   deleteItem = (id) => {
@@ -73,47 +73,31 @@ class ItemControl extends Component {
     })});
   }
 
-  // subtractOneFromInventory = (e) => {
-  //   const id = e.target.id;
 
-  //   const newItemArray = this.state.itemArray.map(item => {
-  //     if (item.id === id) {
-  //       return {
-  //         name: item.name,
-  //         description: item.description,
-  //         available: item.available - 1,
-  //         price: item.price, 
-  //         id: item.id
-  //       } 
-  //     } else {
-  //       return item;
-  //     }
-  //   })
-      
-  //   this.setState({ itemArray: newItemArray })
-  // };
 
   render() {
-
     if (this.state.formShowing) {
       return (
         <Form handleSubmitCallback={this.handleFormSubmit} />
       );
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
-        this.state.itemList.map(item =>
-        <ItemDisplayMode 
-          key={item.id}
-          id={item.id}  
-          name={item.itemName}
-          description={item.description}
-          available={item.available}
-          price={item.price}
-          deleteCallback={this.deleteItem}
-          purchaseCallback={this.purchaseItem}
-          handleAddItemClick={this.displayForm}
-          />)
-    );
+        <div className="ItemView">
+        <button onClick={this.displayForm}>Add Item</button>
+        {this.state.itemList.map(item =>
+          <ItemDisplayMode 
+            key={item.id}
+            id={item.id}  
+            name={item.itemName}
+            description={item.description}
+            available={item.available}
+            price={item.price}
+            deleteCallback={this.deleteItem}
+            purchaseCallback={this.purchaseItem}
+            handleAddItemClick={this.displayForm}
+            />)}
+        </div>
+      );
     } else {
       return (
         <div className="DefaultView">
