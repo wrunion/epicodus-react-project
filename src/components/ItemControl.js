@@ -102,6 +102,7 @@ class ItemControl extends Component {
   }
 
   /* RENDER METHODS */
+
   /* To display the form */ 
   renderForm() {
     return (
@@ -139,6 +140,15 @@ class ItemControl extends Component {
     );
   }
 
+  renderButton() {
+    return (
+      <div id="AddItem">
+        <button className="ui button small" onClick={this.displayForm}>Add Item</button>
+      </div>
+    );
+  }
+
+  /* Actual render method */
   render() {
     const { itemSelected, formShowing, itemList } = this.state;
     /* If an item has been selected for detail view */
@@ -158,7 +168,7 @@ class ItemControl extends Component {
     } else if ((formShowing === false) && (itemList.length > 0)) {
       return (
         <div className="ItemView">
-        <button onClick={this.displayForm}>Add Item</button>
+          {this.renderButton()}  
           {this.renderItemList()}
         </div>
       );
@@ -167,7 +177,7 @@ class ItemControl extends Component {
       return (
         <div className="DefaultView">
           <h2>There are no items to display.</h2>
-          <button onClick={this.displayForm}>Add Item</button>
+          {this.renderButton()}
         </div>
       );
     }
