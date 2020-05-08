@@ -14,9 +14,9 @@ const ItemDisplayMode = (props) => {
     <h3>{name}</h3>
       <p><em>{description}</em></p>
       <p>Available: {available} | Price: {price}</p>
-      <button id={id} onClick={() => handleClick({id: id, action: "purchase"})}>Purchase</button>
-      <button id={id} onClick={() => handleClick({id: id, action: "delete"})}>Delete</button>
-      <button onClick={() => handleClick({id: id, action: "details"})}>View Details</button>
+      <button id={id} onClick={() => handleClick({id: id, action: "purchase"})} className="ui mini green button basic">Purchase</button>
+      <button id={id} onClick={() => handleClick({id: id, action: "delete"})} className="ui mini red button basic">Delete</button>
+      <button onClick={() => handleClick({id: id, action: "details"})} className="ui mini secondary button basic">View Details</button>
     </div>
   );
 }
