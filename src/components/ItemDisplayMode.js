@@ -11,6 +11,7 @@ const ItemDisplayMode = (props) => {
 
   return (
     <div className="ItemDisplayMode" key={id}>
+    <hr />
     <h3>{name}</h3>
       <p><em>{description}</em></p>
       <p>Available: {available} | Price: {price}</p>
