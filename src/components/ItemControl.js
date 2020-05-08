@@ -50,28 +50,26 @@ class ItemControl extends Component {
   }
 
   handleFormSubmit = (item) => {
-    console.log(item);
     this.setState({itemList: [item, ...this.state.itemList], formShowing: false});
   }
-  
-  deleteItem = (id) => {
-    this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
-  }
 
+  handleCancelClick = () => {
+    this.setState({formShowing: false, itemSelected: null});
+  }
+  
   findItemById = (id) => {
     const item = this.state.itemList.filter(item => item.id === id)[0];
     return item;
   }
 
+  deleteItem = (id) => {
+    this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
+  }
+
   showDetailView = (id) => {
     const item = this.findItemById(id);
     this.setState({itemSelected: item.id});
-    console.log(item);
     return item;
-  }
-
-  handleCancelClick = () => {
-    this.setState({formShowing: false, itemSelected: null});
   }
    
   purchaseItem = (id) => {
@@ -88,6 +86,32 @@ class ItemControl extends Component {
         return item;
       }
     })});
+  }
+
+  handleClickAll = (args) => {
+    const { action, id } = args;
+
+    if (action === "details") {
+      this.showDetailView(id)
+    } else if (action === "purchase") {
+      this.purchaseItem(id);
+    } else if (action === "delete") {
+      this.deleteItem(id);
+    } else {
+      console.log('There was an error with handleClickAll');
+    }
+  }
+
+  renderItemDetailView() {
+    const selectedItemId = this.state.itemSelected;
+    const item = this.findItemById(selectedItemId);
+    return (
+      <div className="ItemDetailView">
+        <ItemDetailView 
+          item={item}
+          handleCancelClick={this.handleCancelClick}/>
+      </div>
+    );
   }
 
   render() {
@@ -115,9 +139,10 @@ class ItemControl extends Component {
             description={item.description}
             available={item.available}
             price={item.price}
-            deleteCallback={this.deleteItem}
-            purchaseCallback={this.purchaseItem}
-            handleDetailCallback={this.showDetailView}
+            // deleteCallback={this.deleteItem}
+            // purchaseItem={this.purchaseItem}
+            // handleDetailCallback={this.showDetailView}
+            handleClickCallback={this.handleClickAll}
             />)}
         </React.Fragment>
       );
@@ -133,9 +158,10 @@ class ItemControl extends Component {
             description={item.description}
             available={item.available}
             price={item.price}
-            deleteCallback={this.deleteItem}
-            purchaseCallback={this.purchaseItem}
-            handleDetailCallback={this.showDetailView}
+            // deleteCallback={this.deleteItem}
+            // purchaseCallback={this.purchaseItem}
+            // handleDetailCallback={this.showDetailView}
+            handleClickCallback={this.handleClickAll}
             />)}
         </div>
       );

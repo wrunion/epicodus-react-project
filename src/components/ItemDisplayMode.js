@@ -3,17 +3,20 @@ import PropTypes from 'prop-types';
 
 const ItemDisplayMode = (props) => {
 
-  function purchaseItem(id) {
-    props.purchaseCallback(id);
+  // function purchaseItem(id) {
+  //   props.purchaseCallback(id);
+  // }
+  function handleClick(args) {
+    props.handleClickCallback(args);
   }
   
-  function handleDeleteClick(id) {
-    props.deleteCallback(id);
-  }
+  // function handleDeleteClick(id) {
+  //   props.deleteCallback(id);
+  // }
 
-  function showDetailView(id) {
-    props.handleDetailCallback(id);
-  }
+  // function showDetailView(id) {
+  //   props.handleDetailCallback(id);
+  // }
 
   const { name, description, available, price, id } = props;
 
@@ -22,9 +25,9 @@ const ItemDisplayMode = (props) => {
     <h3>{name}</h3>
       <p><em>{description}</em></p>
       <p>Available: {available} | Price: {price}</p>
-      <button id={id} onClick={() => purchaseItem(id)}>Purchase</button>
-      <button id={id} onClick={() => handleDeleteClick(id)}>Delete</button>
-      <button onClick={() => showDetailView(id)}>View Details</button>
+      <button id={id} onClick={() => handleClick({id: id, action: "purchase"})}>Purchase</button>
+      <button id={id} onClick={() => handleClick({id: id, action: "delete"})}>Delete</button>
+      <button onClick={() => handleClick({id: id, action: "details"})}>View Details</button>
     </div>
   );
 }
