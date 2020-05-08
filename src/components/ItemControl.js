@@ -90,7 +90,6 @@ class ItemControl extends Component {
 
   handleClickAll = (args) => {
     const { action, id } = args;
-
     if (action === "details") {
       this.showDetailView(id)
     } else if (action === "purchase") {
@@ -102,6 +101,9 @@ class ItemControl extends Component {
     }
   }
 
+  /* Render methods */
+
+  /* To show a single item detail */ 
   renderItemDetailView() {
     const selectedItemId = this.state.itemSelected;
     const item = this.findItemById(selectedItemId);
@@ -114,51 +116,46 @@ class ItemControl extends Component {
     );
   }
 
+  /* To show the item list */
+  renderItemList() {
+    return (
+    this.state.itemList.map(item =>
+      <ItemDisplayMode 
+        key={item.id}
+        id={item.id}  
+        name={item.itemName}
+        description={item.description}
+        available={item.available}
+        price={item.price}
+        handleClickCallback={this.handleClickAll}
+        />)
+    );
+  }
+
   render() {
+    /* If an item has been selected for detail view */
     if (this.state.itemSelected !== null) {
       return (
         this.renderItemDetailView()
       );
+    /* If user has clicked "Add Item" */
     } else if (this.state.formShowing) {
       return (
         <React.Fragment>
           <Form handleSubmitCallback={this.handleFormSubmit} 
           handleCancelClick={this.handleCancelClick} />
-
-          {this.state.itemList.map(item =>
-          <ItemDisplayMode 
-            key={item.id}
-            id={item.id}  
-            name={item.itemName}
-            description={item.description}
-            available={item.available}
-            price={item.price}
-            // deleteCallback={this.deleteItem}
-            // purchaseItem={this.purchaseItem}
-            // handleDetailCallback={this.showDetailView}
-            handleClickCallback={this.handleClickAll}
-            />)}
+          {this.renderItemList()}
         </React.Fragment>
       );
+    /* If the first two are false, but there are items to show */  
     } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
       return (
         <div className="ItemView">
         <button onClick={this.displayForm}>Add Item</button>
-        {this.state.itemList.map(item =>
-          <ItemDisplayMode 
-            key={item.id}
-            id={item.id}  
-            name={item.itemName}
-            description={item.description}
-            available={item.available}
-            price={item.price}
-            // deleteCallback={this.deleteItem}
-            // purchaseCallback={this.purchaseItem}
-            // handleDetailCallback={this.showDetailView}
-            handleClickCallback={this.handleClickAll}
-            />)}
+          {this.renderItemList()}
         </div>
       );
+    /* If itemList is empty */  
     } else {
       return (
         <div className="DefaultView">
