@@ -3,6 +3,7 @@
   border: 2px rgb(25, 173, 25) solid;
   border-radius: 5px;
   margin: 1.5em;
+  padding: 1em;
 }
 
 .App a:link, a:visited {
@@ -19,7 +20,11 @@
 }
 
 .ItemDisplayMode {
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
+  padding-top: 1em;
+  width: 60%;
+  margin: 0 auto 1em auto;
+  border: 1px solid grey;
 }
 
 .ItemDetailView {
@@ -32,11 +37,8 @@
 
 #AddItem {
   padding: 1em;
-}
-
-button {
-  margin-left: 5px;
-  border-radius: 5px;
+  max-width: 65%;
+  margin: auto;
 }
 
 .Footer {
