@@ -15,14 +15,16 @@ const ItemDisplayMode = (props) => {
     props.handleDetailCallback(id);
   }
 
+  const { name, description, available, price, id } = props;
+
   return (
-    <div className="ItemDisplayMode" key={props.id}>
-    <h3>{props.name}</h3>
-      <p><em>{props.description}</em></p>
-      <p>Available: {props.available} | Price: {props.price}</p>
-      <button id={props.id} onClick={() => purchaseItem(props.id)}>Purchase</button>
-      <button id={props.id} onClick={() => handleDeleteClick(props.id)}>Delete</button>
-      <button onClick={() => showDetailView(props.id)}>View Details</button>
+    <div className="ItemDisplayMode" key={id}>
+    <h3>{name}</h3>
+      <p><em>{description}</em></p>
+      <p>Available: {available} | Price: {price}</p>
+      <button id={id} onClick={() => purchaseItem(id)}>Purchase</button>
+      <button id={id} onClick={() => handleDeleteClick(id)}>Delete</button>
+      <button onClick={() => showDetailView(id)}>View Details</button>
     </div>
   );
 }

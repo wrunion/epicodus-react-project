@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ItemDetailView = (props) => {
   const { item } = props;
-
+  
   return (
     <div className="ItemDetailView" key={item.id}>
       <h3>{item.itemName}</h3>

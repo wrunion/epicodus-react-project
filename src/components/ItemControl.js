@@ -106,6 +106,7 @@ class ItemControl extends Component {
         <React.Fragment>
           <Form handleSubmitCallback={this.handleFormSubmit} 
           handleCancelClick={this.handleCancelClick} />
+
           {this.state.itemList.map(item =>
           <ItemDisplayMode 
             key={item.id}
@@ -114,8 +115,6 @@ class ItemControl extends Component {
             description={item.description}
             available={item.available}
             price={item.price}
-            detailView={this.state.detailView}
-            selectedItem={this.state.selectedItem}
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
             handleDetailCallback={this.showDetailView}
@@ -136,8 +135,6 @@ class ItemControl extends Component {
             price={item.price}
             deleteCallback={this.deleteItem}
             purchaseCallback={this.purchaseItem}
-            handleAddItemClick={this.displayForm}
-            selectedItem={this.state.selectedItem}
             handleDetailCallback={this.showDetailView}
             />)}
         </div>
