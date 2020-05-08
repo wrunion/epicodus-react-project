@@ -133,13 +133,14 @@ class ItemControl extends Component {
   }
 
   render() {
+    const { itemSelected, formShowing, itemList } = this.state;
     /* If an item has been selected for detail view */
-    if (this.state.itemSelected !== null) {
+    if (itemSelected !== null) {
       return (
         this.renderItemDetailView()
       );
     /* If user has clicked "Add Item" */
-    } else if (this.state.formShowing) {
+    } else if (formShowing) {
       return (
         <React.Fragment>
           <Form handleSubmitCallback={this.handleFormSubmit} 
@@ -148,7 +149,7 @@ class ItemControl extends Component {
         </React.Fragment>
       );
     /* If the first two are false, but there are items to show */  
-    } else if ((this.state.formShowing === false) && (this.state.itemList.length > 0)) {
+    } else if ((formShowing === false) && (itemList.length > 0)) {
       return (
         <div className="ItemView">
         <button onClick={this.displayForm}>Add Item</button>
