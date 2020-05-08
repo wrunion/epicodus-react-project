@@ -1,14 +1,16 @@
 import React from 'react';
-import ItemControl from './ItemControl';
-import Footer from './Footer';
+// import ItemControl from './ItemControl';
+// import Footer from './Footer';
+import ItemList from './ItemList';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div className="Header"><h1>AunTea's Organics</h1></div>
+      <ItemList />
+      {/* <div className="Header"><h1>AunTea's Organics</h1></div>
       <ItemControl />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
