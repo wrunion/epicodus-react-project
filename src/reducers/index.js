@@ -50,4 +50,4 @@ const selectedItemReducer = (selectedItem=null, action) => {
 export default combineReducers({
   items: itemsReducer,
   selectedItem: selectedItemReducer
-})
+});
