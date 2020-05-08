@@ -29,8 +29,8 @@ function Form(props) {
         <div className="inputField">
           <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" /></label>
         </div>
-        <button type="submit">Add Item</button>
-        <button type="button" onClick={props.handleCancelClick}>Cancel</button>
+        <button type="submit" className="ui button mini green basic">Add Item</button>
+        <button type="button" onClick={props.handleCancelClick}className="ui button mini grey basic">Cancel</button>
       </form>
     </div>
   );
