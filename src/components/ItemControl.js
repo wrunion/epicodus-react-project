@@ -101,12 +101,19 @@ class ItemControl extends Component {
     }
   }
 
-  /* Render methods */
-
+  /* RENDER METHODS */
+  /* To display the form */ 
+  renderForm() {
+    return (
+      <Form handleSubmitCallback={this.handleFormSubmit} 
+      handleCancelClick={this.handleCancelClick} />
+    );
+  }
+  
   /* To show a single item detail */ 
   renderItemDetailView() {
-    const selectedItemId = this.state.itemSelected;
-    const item = this.findItemById(selectedItemId);
+    const id = this.state.itemSelected;
+    const item = this.findItemById(id);
     return (
       <div className="ItemDetailView">
         <ItemDetailView 
@@ -143,8 +150,7 @@ class ItemControl extends Component {
     } else if (formShowing) {
       return (
         <React.Fragment>
-          <Form handleSubmitCallback={this.handleFormSubmit} 
-          handleCancelClick={this.handleCancelClick} />
+          {this.renderForm()}
           {this.renderItemList()}
         </React.Fragment>
       );
