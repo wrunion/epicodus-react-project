@@ -5,42 +5,6 @@ import ItemDetailView from './ItemDetailView';
 
 class ItemControl extends Component {
   state = {
-    formShowing: false,
-    itemSelected: null
-  }
-
-  displayForm = () => {
-    this.setState({formShowing: true});
-  }
-
-  handleFormSubmit = (item) => {
-    this.setState({itemList: [item, ...this.state.itemList], formShowing: false});
-  }
-
-  handleCancelClick = () => {
-    this.setState({formShowing: false, itemSelected: null});
-  }
-  
-  findItemById = (id) => {
-    const item = this.state.itemList.filter(item => item.id === id)[0];
-    return item;
-  }
-
-  deleteItem = (id) => {
-    this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
-  }
-
-  showDetailView = (id) => {
-    const item = this.findItemById(id);
-    this.setState({itemSelected: item.id});
-    return item;
-  }
-   
-  purchaseItem = (id) => {
-    this.setState({itemList: this.state.itemList.map(item => {
-      if (item.id === id) {
-        return {
-          itemName: item.itemName,
           description: item.description,
           available: item.available >= 1 ?  item.available - 1 : 0,
           price: item.price, 
