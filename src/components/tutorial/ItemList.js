@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectItem } from '../actions';
+import { selectItem } from '../../actions';
 
 class ItemList extends Component {
   /* Return the styled list */
@@ -24,7 +24,6 @@ class ItemList extends Component {
 }
   /* MAIN RENDER METHOD */  
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.renderList()}
@@ -34,7 +33,6 @@ class ItemList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     items: state.items
   }

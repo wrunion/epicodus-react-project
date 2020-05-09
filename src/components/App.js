@@ -1,7 +1,8 @@
 import React from 'react';
 // import ItemControl from './ItemControl';
 // import Footer from './Footer';
-import ItemList from './ItemList';
+import ItemList from './tutorial/ItemList';
+import ItemDetail from './tutorial/ItemDetail';
 import './App.css';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
         <div className="ui row">
           <div className="column eight wide">
             <ItemList />
+          </div>
+          <div className="column eight wide">
+            <ItemDetail />
           </div>
         </div>
       </div>
