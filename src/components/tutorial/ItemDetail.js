@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ItemDetail = (props) => {
+const ItemDetail = ({item}) => {
   /* If no item is selected */
-  if (props.item === null) {
+  if (!item) {
     return (
       <p>Choose an item for a detailed view</p>
     );
   } else {
     /* Grab item properties */
-    const { itemName, description, price, available } = props.item;
+    const { itemName, description, price, available } = item;
+    
     return (
       <React.Fragment>
         <h1>{itemName}</h1>

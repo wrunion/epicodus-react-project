@@ -10,6 +10,7 @@ class ItemList extends Component {
         <div className="Item ui card grid-item" key={item.id}>
           <div className="content">
             <h5 key={item.id}>{item.itemName}</h5>
+            <p><em>{item.description}</em></p>
           </div>
           <div className="right floated content">
             <button 
