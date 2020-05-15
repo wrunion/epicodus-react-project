@@ -6,3 +6,10 @@ export const selectItem = (item) => {
     item: item
   };
 };
+
+export const purchaseItem = (item) => {
+  return {
+    type: 'PURCHASE_ITEM',
+    item: item
+  }
+}

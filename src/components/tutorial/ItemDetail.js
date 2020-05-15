@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const ItemDetail = ({item}) => {
+const ItemDetail = ({selectedItem}) => {
   /* If no item is selected */
-  if (!item) {
+  if (!selectedItem) {
     return (
       <p>Choose an item for a detailed view</p>
     );
   } else {
     /* Grab item properties */
-    const { itemName, description, price, available } = item;
+    const { itemName, description, price, available } = selectedItem;
     
     return (
       <React.Fragment>
@@ -24,7 +24,10 @@ const ItemDetail = ({item}) => {
 }
 
 const mapStateToProps = (state) => {
-  return { item: state.selectedItem };
+  return { 
+    selectedItem: state.selectedItem
+    
+  };
 }
 
 export default connect(mapStateToProps)(ItemDetail);

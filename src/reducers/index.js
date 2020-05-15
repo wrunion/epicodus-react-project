@@ -42,6 +42,7 @@
 
 const initState = {
   selectedItem: null,
+  purchasedItem: null,
   items:[
     {
       itemName: "Green Matcha",
@@ -88,6 +89,11 @@ export default (state=initState, action) => {
         ...state,
         selectedItem: action.item
       }
+    case 'PURCHASE_ITEM':
+      return {
+        ...state,
+        purchasedItem: action.item.id
+      }  
     default:
       return state;
   }
