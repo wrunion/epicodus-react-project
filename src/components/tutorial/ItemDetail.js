@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { purchaseItem } from './../../actions';
 
 const ItemDetail = ({selectedItem}) => {
   /* If no item is selected */
@@ -25,9 +26,12 @@ const ItemDetail = ({selectedItem}) => {
 
 const mapStateToProps = (state) => {
   return { 
-    selectedItem: state.selectedItem
-    
+    selectedItem: state.selectedItem, 
+    purchaseItem: state.purchaseItem, 
+    items: state.items
   };
 }
 
-export default connect(mapStateToProps)(ItemDetail);
+export default connect(mapStateToProps, {
+  purchaseItem: purchaseItem
+})(ItemDetail);
