@@ -1,5 +1,15 @@
 export default (state ={}, action) => {
-  return state;
+  const { type, data } = action;
+
+  switch(type) {
+    case "ADD_ITEM":
+      return [...state, data];
+  
+  
+    default:
+      return state;
+  }
+
 }
 
 
