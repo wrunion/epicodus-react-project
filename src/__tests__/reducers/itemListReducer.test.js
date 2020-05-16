@@ -42,15 +42,15 @@ describe('reducer', () => {
     }
   ] 
 
-  const deletedItemData = [
-    {
-      itemName: "Lavender Blend",
-      description: "A soothing blend to wash away worries",
-      available: 100,
-      price: 15,
-      id: 2
-    }
-  ] 
+  // const deletedItemData = [
+  //   {
+  //     itemName: "Lavender Blend",
+  //     description: "A soothing blend to wash away worries",
+  //     available: 100,
+  //     price: 15,
+  //     id: 2
+  //   }
+  // ] 
 
   /* ADD_ITEM test */
   test('Should add new item data to state array', () => {
@@ -58,14 +58,30 @@ describe('reducer', () => {
   });
 
   /* EDIT_ITEM test */
-  test('Should replace an item in state array if an item with the same id already exists', () => [
-    expect(reducer(itemData, {type: 'EDIT_ITEM', data: {      
-      itemName: "New Lavender Blend",
-      description: "New Description",
-      available: 100,
-      price: 15,
-      id: 2}})).toEqual([{editedItemData}])
-  ]);
+  test('Should edit/replace item if an item with the same id already exists', () => {
+    expect(reducer(itemData, {type: 'EDIT_ITEM', data: {itemName: "New Lavender Blend",
+    description: "New Description",
+    available: 100,
+    price: 15,
+    id: 2}})).toEqual(
+      [
+        {
+          itemName: "Green Matcha",
+          description: "A healthy tea that gives you energy and focus",
+          available: 100,
+          price: 20, 
+          id: 1
+        },
+        {
+          itemName: "New Lavender Blend",
+          description: "New Description",
+          available: 100,
+          price: 15,
+          id: 2
+        }
+        ]
+      )
+    });
 
   /* DELETE_ITEM test */
 

@@ -5,7 +5,7 @@ export default (state ={}, action) => {
     case "ADD_ITEM":
       return [...state, data];
     case 'EDIT_ITEM':
-      return state;
+      return state.map(e => e.id === data.id ? data : e);
     case 'DELETE_ITEM':
       return state;  
     default:
