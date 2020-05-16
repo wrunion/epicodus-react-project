@@ -42,15 +42,15 @@ describe('reducer', () => {
     }
   ] 
 
-  // const deletedItemData = [
-  //   {
-  //     itemName: "Lavender Blend",
-  //     description: "A soothing blend to wash away worries",
-  //     available: 100,
-  //     price: 15,
-  //     id: 2
-  //   }
-  // ] 
+  const deletedItemData = [
+    {
+      itemName: "Lavender Blend",
+      description: "A soothing blend to wash away worries",
+      available: 100,
+      price: 15,
+      id: 2
+    }
+  ] 
 
   /* ADD_ITEM test */
   test('Should add new item data to state array', () => {
@@ -84,7 +84,9 @@ describe('reducer', () => {
     });
 
   /* DELETE_ITEM test */
-
+  test('Should delete an item based on item id', () => {
+    expect(reducer(itemData), {type: 'DELETE_ITEM', data: {id: 1}}).toEqual(deletedItemData);
+  });
 
 
 
