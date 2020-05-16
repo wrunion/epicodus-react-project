@@ -56,7 +56,7 @@ describe('itemListReducer', () => {
 
   test('Should successfully delete an item', () => {
     action = {
-      type: 'DELETE_TICKET',
+      type: 'DELETE_ITEM',
       id: 1
     };
     expect(itemListReducer(currentState, action)).toEqual({
