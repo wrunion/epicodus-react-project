@@ -23,13 +23,15 @@ describe('itemListReducer', () => {
     };
 
     expect(itemListReducer({}, action)).toEqual({
-      [id]: {
-      name: name,
-      description: description,
-      available: available,
-      price: price,
-      id: id
-      }
+      itemList: [
+        {
+          name: name,
+          description: description,
+          available: available,
+          price: price,
+          id: id
+        }
+      ]
     });
   });
 
