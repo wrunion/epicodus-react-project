@@ -4,7 +4,7 @@ describe('itemListReducer', () => {
 
   let action;
   const ticketData = {
-    itemName: "Green Matcha",
+    name: "Green Matcha",
     description: "A healthy tea that gives you energy and focus",
     available: 100,
     price: 20, 
@@ -12,25 +12,25 @@ describe('itemListReducer', () => {
   };
 
   test('Should sucessfully add new item data to masterItemList', () => {
-    const { itemName, description, available, price, id } = ticketData;
+    const { name, description, available, price, id } = ticketData;
     action = {
       type: 'ADD-TICKET',
-      itemName: itemName,
-      description: description,
-      available: available,
-      price: price,
-      id: id
+      name: "Green Matcha",
+      description: "A healthy tea that gives you energy and focus",
+      available: 100,
+      price: 20, 
+      id: 1
     };
 
-    expect(itemListReducer({}, action)).toEqual({
-      [id]: {
-      itemName: itemName,
+    expect(itemListReducer({}, action)).toEqual([
+      {
+      name: name,
       description: description,
       available: available,
       price: price,
       id: id
       }
-    });
+    ]);
   });
 
 
@@ -39,14 +39,14 @@ describe('itemListReducer', () => {
   });
 });
 
-// itemName: "Green Matcha",
+// name: "Green Matcha",
 // description: "A healthy tea that gives you energy and focus",
 // available: 100,
 // price: 20, 
 // id: 1
 // },
 // {
-// itemName: "Lavender Blend",
+// name: "Lavender Blend",
 // description: "A soothing blend to wash away worries",
 // available: 100,
 // price: 15,
