@@ -3,7 +3,7 @@ import itemListReducer from '../../reducers/itemListReducer';
 describe('itemListReducer', () => {
 
   let action;
-  const ticketData = {
+  const itemData = {
     name: "Green Matcha",
     description: "A healthy tea that gives you energy and focus",
     available: 100,
@@ -12,9 +12,9 @@ describe('itemListReducer', () => {
   };
 
   test('Should sucessfully add new item data to masterItemList', () => {
-    const { name, description, available, price, id } = ticketData;
+    const { name, description, available, price, id } = itemData;
     action = {
-      type: 'ADD-TICKET',
+      type: 'ADD_ITEM',
       name: "Green Matcha",
       description: "A healthy tea that gives you energy and focus",
       available: 100,
@@ -22,15 +22,15 @@ describe('itemListReducer', () => {
       id: 1
     };
 
-    expect(itemListReducer({}, action)).toEqual([
-      {
+    expect(itemListReducer({}, action)).toEqual({
+      [id]: {
       name: name,
       description: description,
       available: available,
       price: price,
       id: id
       }
-    ]);
+    });
   });
 
 
