@@ -30,6 +30,25 @@ describe('itemListReducer', () => {
     ]
   }
 
+  const updatedItemData = {
+    itemList: [
+      {
+        name: "Updated Name",
+        description: "Updated Description",
+        available: 100,
+        price: 20, 
+        id: 1
+        },
+        {
+        name: "Lavender Blend",
+        description: "A soothing blend to wash away worries",
+        available: 100,
+        price: 15,
+        id: 2
+        }
+    ]
+  }
+
   test('Should sucessfully add new item data to masterItemList', () => {
     const { name, description, available, price, id } = itemData;
     action = {
@@ -69,10 +88,36 @@ describe('itemListReducer', () => {
       id: 2
       }]
     });
+  });
+
+  test('Should update item data using the ADD_TICKET reducer, if id already exists', () => {
+    const { name, description, available, price, id } = updatedItemData;
+    action = {
+      type: 'ADD_ITEM',
+      name: name,
+      description: description,
+      available: available,
+      price: price,
+      id: id
+    };
+
+    expect(itemListReducer({}, action)).toEqual({
+      itemList: [
+        {
+          name: name,
+          description: description,
+          available: available,
+          price: price,
+          id: id
+        }
+      ]
+    });
+  });
 
 
 
-  })
+
+
 
   test('Should return default state if no action is passed in', () => {
     expect(itemListReducer({}, {type: null})).toEqual({});
