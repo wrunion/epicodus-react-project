@@ -1,4 +1,4 @@
-import reducer from '../../reducers';
+import reducer from '../../reducers/itemListReducer';
 
 describe('reducer', () => {
   /* Default setup test */
@@ -7,7 +7,6 @@ describe('reducer', () => {
   });
 
   /* Dummy data for tests */
-  let action;
   const itemData = [
     {
       itemName: "Green Matcha",
@@ -25,22 +24,22 @@ describe('reducer', () => {
     }
   ]  
 
-  const editedItemData = [
-    {
-      itemName: "Green Matcha",
-      description: "A healthy tea that gives you energy and focus",
-      available: 100,
-      price: 20, 
-      id: 1
-    },
-    {
-      itemName: "New Lavender Blend",
-      description: "New Description",
-      available: 100,
-      price: 15,
-      id: 2
-    }
-  ] 
+  // const editedItemData = [
+  //   {
+  //     itemName: "Green Matcha",
+  //     description: "A healthy tea that gives you energy and focus",
+  //     available: 100,
+  //     price: 20, 
+  //     id: 1
+  //   },
+  //   {
+  //     itemName: "New Lavender Blend",
+  //     description: "New Description",
+  //     available: 100,
+  //     price: 15,
+  //     id: 2
+  //   }
+  // ] 
 
   const deletedItemData = [
     {
