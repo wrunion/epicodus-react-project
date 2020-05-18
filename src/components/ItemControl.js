@@ -47,8 +47,14 @@ class ItemControl extends Component {
   }
 
   displayForm = () => {
-    this.setState({formShowing: true});
+    // this.setState({formShowing: true});
     // this.props.handleClick('')
+    const action = {
+      type: 'TOGGLE_FORM',
+      data: null
+    }
+    this.props.dispatch(action);
+    
   }
 
   handleFormSubmit = (item) => {
@@ -165,7 +171,7 @@ class ItemControl extends Component {
         this.renderItemDetailView()
       );
     /* If user has clicked "Add Item" */
-    } else if (formShowing) {
+    } else if (this.props.handleClick.formShowing) {
       return (
         <React.Fragment>
           {this.renderForm()}

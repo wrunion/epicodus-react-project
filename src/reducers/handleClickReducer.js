@@ -3,7 +3,7 @@ export default(state={}, action) => {
 
   switch(type) {
     case 'CANCEL_CLICK': 
-      return { ...state, editing: false };
+      return { ...state, formShowing: false };
     case 'SELECT_ITEM_CLICK':
       return { ...state,  selectedItem: data}; 
     case 'ENTER_EDIT_MODE': 
