@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
 import ItemDetailView from './ItemDetailView';
+import { connect } from 'react-redux';
 
 class ItemControl extends Component {
   state = {
@@ -47,6 +48,7 @@ class ItemControl extends Component {
 
   displayForm = () => {
     this.setState({formShowing: true});
+    // this.props.handleClick('')
   }
 
   handleFormSubmit = (item) => {
@@ -54,7 +56,12 @@ class ItemControl extends Component {
   }
 
   handleCancelClick = () => {
-    this.setState({formShowing: false, itemSelected: null});
+    this.setState({formShowing: false});
+    const action = {
+      type: 'CANCEL_CLICK',
+      data: null
+    }
+    this.props.dispatch(action);
   }
   
   findItemById = (id) => {
@@ -150,6 +157,7 @@ class ItemControl extends Component {
 
   /* Actual render method */
   render() {
+    console.log(this.props);
     const { itemSelected, formShowing, itemList } = this.state;
     /* If an item has been selected for detail view */
     if (itemSelected !== null) {
@@ -184,4 +192,11 @@ class ItemControl extends Component {
   }
 }
 
-export default ItemControl;
+const mapStateToProps = state => {
+  return {
+    itemList: state.itemList,
+    handleClick: state.handleClick
+  }
+}
+
+export default connect(mapStateToProps)(ItemControl);
