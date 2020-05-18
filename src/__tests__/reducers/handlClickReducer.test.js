@@ -6,7 +6,12 @@ describe('handleClickReducer', () => {
     expect(handleClickReducer({}, {type: null})).toEqual({});
   });
 
-  test('Should return an "editing" value of null if action specified is CANCEL_CLICK', () => {
+  test('Should return an "editing" value of false if action specified is CANCEL_CLICK', () => {
     expect(handleClickReducer({}, { type: 'CANCEL_CLICK', data: {} })).toEqual({ editing: false});
   });
+
+  test('Should return an "editing" value of true if action specified is EDIT_CLICK', ()=> {
+    expect(handleClickReducer({}, {type: 'EDIT_CLICK', data: {}})).toEqual({editing: true});
+  });
+
 });
