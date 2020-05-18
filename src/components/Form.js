@@ -5,23 +5,29 @@ import { createItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
 
 class Form extends React.Component {
-  state={
-    itemName: '',
-    description: '',
-    available: '',
-    price: '', 
-    id: v4()
-  }
+  // state={
+  //   itemName: '',
+  //   description: '',
+  //   available: '',
+  //   price: '', 
+  //   id: v4()
+  // }
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    })
-  }
+  // handleChange = (e) => {
+  //   this.setState({
+  //     [e.target.id]: e.target.value
+  //   })
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.createItem(this.state);
+    this.props.createItem({
+      itemName: e.target.itemName.value,
+      description: e.target.description.value,
+      available: e.target.available.value,
+      price: e.target.price.value, 
+      id: v4()
+    });
   }
 
   render() {
@@ -51,7 +57,7 @@ class Form extends React.Component {
 
 /* COME BACK TO THESE */
 Form.propTypes = {
-  handleSubmitCallback: PropTypes.func,
+  handleSubmit: PropTypes.func,
   handleCancelClick: PropTypes.func
 };
 
