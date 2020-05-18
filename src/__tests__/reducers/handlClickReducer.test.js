@@ -16,4 +16,20 @@ describe('handleClickReducer', () => {
     expect(handleClickReducer({editing: false, selectedItem: 2}, {type: 'ENTER_EDIT_MODE', data: {}})).toEqual({editing: true, selectedItem: 2});
   });
 
+  test('Should return selected item object if action type is SELECT_ITEM_CLICK', () => {
+    expect(handleClickReducer({}, {type: 'SELECT_ITEM_CLICK', data: {      
+    itemName: "Lavender Blend",
+    description: "A soothing blend to wash away worries",
+    available: 100,
+    price: 15,
+    id: 2}})).toEqual({ selectedItem: {
+      itemName: "Lavender Blend",
+      description: "A soothing blend to wash away worries",
+      available: 100,
+      price: 15,
+      id: 2
+      }
+    });
+  });
+
 });
