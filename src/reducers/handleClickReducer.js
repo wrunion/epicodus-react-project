@@ -5,7 +5,7 @@ export default(state={}, action) => {
     case 'CANCEL_CLICK': 
       return { ...state, editing: false };
     case 'SELECT_ITEM_CLICK':
-      return state; 
+      return { ...state,  selectedItem: data}; 
     case 'ENTER_EDIT_MODE': 
       return { ...state, editing: true };
     default:
