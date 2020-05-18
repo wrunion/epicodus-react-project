@@ -164,14 +164,15 @@ class ItemControl extends Component {
   /* Actual render method */
   render() {
     console.log(this.props);
-    const { itemSelected, formShowing, itemList } = this.state;
+    const { itemSelected, itemList } = this.state;
+    const { formShowing } = this.props.handleClick;
     /* If an item has been selected for detail view */
     if (itemSelected !== null) {
       return (
         this.renderItemDetailView()
       );
     /* If user has clicked "Add Item" */
-    } else if (this.props.handleClick.formShowing) {
+    } else if (formShowing) {
       return (
         <React.Fragment>
           {this.renderForm()}
