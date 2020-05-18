@@ -165,8 +165,10 @@ class ItemControl extends Component {
   /* Actual render method */
   render() {
     console.log(this.props);
-    const { itemSelected, itemList } = this.state;
+    console.log(this.props.itemList);
+    const { itemSelected } = this.state;
     const { formShowing } = this.props.handleClick;
+    const { itemList } = this.props;
     /* If an item has been selected for detail view */
     if (itemSelected !== null) {
       return (

@@ -34,9 +34,9 @@ const initState = [
     price: 10,
     id: 5
   }
-]
+] 
 
-export default (state =initState, action) => {
+export default (state = initState, action) => {
   const { type, data } = action;
 
   switch(type) {
