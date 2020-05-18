@@ -42,23 +42,24 @@ class ItemControl extends Component {
       id: 5
     }
   ],
-    formShowing: false,
     itemSelected: null
   }
 
   displayForm = () => {
-    // this.setState({formShowing: true});
-    // this.props.handleClick('')
     const action = {
       type: 'TOGGLE_FORM',
       data: null
     }
     this.props.dispatch(action);
-    
   }
 
   handleFormSubmit = (item) => {
-    this.setState({itemList: [item, ...this.state.itemList], formShowing: false});
+    const action = {
+      type: 'ADD_ITEM',
+      data: item
+    }
+    this.props.dispatch(action);
+    this.setState({formShowing: false});
   }
 
   handleCancelClick = () => {
