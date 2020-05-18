@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 
 class Form extends React.Component {
   state={
-    name: '',
+    itemName: '',
     description: '',
-    available: null,
-    price: null, 
-    id: null
+    available: '',
+    price: '', 
+    id: v4()
   }
 
   handleChange = (e) => {
@@ -35,10 +35,10 @@ class Form extends React.Component {
           <label>Description: <input type="text" name="description" id="description" defaultValue="Healthy and Delicious" onChange={this.handleChange}/></label>
         </div>
         <div className="inputField">
-          <label>Price: <input type="number" name="price" price="price" defaultValue="23" min={0} onChange={this.handleChange} /></label>
+          <label>Price: <input type="number" name="price" id="price" defaultValue="23" min={0} onChange={this.handleChange} /></label>
         </div>
         <div className="inputField">
-          <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" onChange={this.handleChange} /></label>
+          <label>Available: <input type="number" name="available" id="available" min={0} defaultValue="100" onChange={this.handleChange} /></label>
         </div>
         <button type="submit" className="ui button mini green basic">Add Item</button>
         {/* //Find a "Redux way" to handle the cancel button */}
