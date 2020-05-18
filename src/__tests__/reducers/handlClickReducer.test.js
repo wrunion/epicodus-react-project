@@ -35,4 +35,11 @@ describe('handleClickReducer', () => {
     });
   });
 
+  /* Toggle form visibility */
+  test('Should hide or show form on page if action type equals TOGGLE_FORM', () => {
+    expect(handleClickReducer({formShowing: false}, { type: 'TOGGLE_FORM', data: {}})).toEqual({formShowing: true});
+    expect(handleClickReducer({}, { type: 'TOGGLE_FORM', data: {}})).toEqual({formShowing: true});
+    expect(handleClickReducer({formShowing: true}, { type: 'TOGGLE_FORM', data: {}})).toEqual({formShowing: false});
+  });
+
 });

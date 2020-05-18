@@ -8,6 +8,8 @@ export default(state={}, action) => {
       return { ...state,  selectedItem: data}; 
     case 'ENTER_EDIT_MODE': 
       return { ...state, editing: true };
+    case 'TOGGLE_FORM':
+      return { formShowing: !state.formShowing };  
     default:
       return state;  
   }
