@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemControl from './ItemControl';
 import ItemDetail from './ItemDetail';
+import AddItem from './AddItem';
 import Footer from './Footer';
 import './App.css';
 
@@ -16,8 +17,13 @@ function App() {
           <div className="column eight wide">
             <ItemDetail />
           </div>
-          </div>
         </div>
+      </div>
+      <div className="ui container grid">
+        <div className="column sixteen wide">
+          <AddItem />
+        </div>
+      </div>
       <Footer />
     </div>
   );

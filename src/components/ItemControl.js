@@ -4,7 +4,6 @@ import Item from './Item';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
-import TutorialItemList from './TutorialItemList';
 
 class ItemControl extends Component {
   state = {
@@ -123,22 +122,22 @@ class ItemControl extends Component {
   /* To show the item list */
   renderItemList() {
     return (
-      <TutorialItemList />
-    // this.props.itemList.map(item =>
-    //   <Item item={item}
-    //     key={item.id}
-    //     handleClickCallback={this.handleClickAll}
-    //     />)
+      // <TutorialItemList />
+    this.props.itemList.map(item =>
+      <Item item={item}
+        key={item.id}
+        handleClickCallback={this.handleClickAll}
+        />)
     );
   }
 
-  renderButton() {
-    return (
-      <div id="AddItem">
-        <button className="ui button small basic green fluid" onClick={this.displayForm}>Add Item</button>
-      </div>
-    );
-  }
+  // renderButton() {
+  //   return (
+  //     <div id="AddItem">
+  //       <button className="ui button small basic green fluid" onClick={this.displayForm}>Add Item</button>
+  //     </div>
+  //   );
+  // }
   
   /* Actual render method */
   render() {
@@ -166,7 +165,7 @@ class ItemControl extends Component {
       return (
         <div className="ItemView">
           {this.renderItemList()}
-          {this.renderButton()}  
+            
         </div>
       );
     /* If itemList is empty */  
@@ -174,7 +173,7 @@ class ItemControl extends Component {
       return (
         <div className="DefaultView">
           <h2>There are no items to display.</h2>
-          {this.renderButton()}
+          
         </div>
       );
     }
