@@ -3,11 +3,17 @@ import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
+import InventoryList from './InventoryList';
 
 class ItemControl extends Component {
   state = {
     itemSelected: null
   }
+
+  // componentDidMount =(props) => {
+  //   const items = this.props.itemList;
+  //   items ? items.
+  // }
 
   displayForm = () => {
     const action = {
@@ -132,45 +138,55 @@ class ItemControl extends Component {
     );
   }
 
-  /* Actual render method */
-  render() {
-    console.log(this.props);
-    console.log(this.props.itemList);
-    const { itemSelected } = this.state;
-    const { formShowing } = this.props.handleClick;
-    const { itemList } = this.props;
-    /* If an item has been selected for detail view */
-    if (itemSelected !== null) {
-      return (
-        this.renderItemDetailView()
-      );
-    /* If user has clicked "Add Item" */
-    } else if (formShowing) {
-      return (
-        <React.Fragment>
-          {this.renderForm()}
-          {this.renderItemList()}
-        </React.Fragment>
-      );
-    /* If the first two are false, but there are items to show */  
-    } else if ((formShowing === false) && (itemList.length > 0)) {
-      return (
-        <div className="ItemView">
-          {this.renderButton()}  
-          {this.renderItemList()}
-        </div>
-      );
-    /* If itemList is empty */  
-    } else {
-      return (
-        <div className="DefaultView">
-          <h2>There are no items to display.</h2>
-          {this.renderButton()}
-        </div>
-      );
-    }
-  }
+render () {
+  return (
+    <InventoryList />
+  );
 }
+}
+
+  /* Actual render method */
+//   render() {
+    
+//     const items = this.props.itemList;
+//     // {items ? items.
+//     console.log(this.props);
+//     console.log(this.props.itemList);
+//     const { itemSelected } = this.state;
+//     const { formShowing } = this.props.handleClick;
+//     const { itemList } = this.props;
+//     /* If an item has been selected for detail view */
+//     if (items && itemSelected !== null) {
+//       return (
+//         this.renderItemDetailView()
+//       );
+//     /* If user has clicked "Add Item" */
+//     } else if (formShowing) {
+//       return (
+//         <React.Fragment>
+//           {this.renderForm()}
+//           {this.renderItemList()}
+//         </React.Fragment>
+//       );
+//     /* If the first two are false, but there are items to show */  
+//     } else if ((formShowing === false) && (itemList.length > 0)) {
+//       return (
+//         <div className="ItemView">
+//           {this.renderButton()}  
+//           {this.renderItemList()}
+//         </div>
+//       );
+//     /* If itemList is empty */  
+//     } else {
+//       return (
+//         <div className="DefaultView">
+//           <h2>There are no items to display.</h2>
+//           {this.renderButton()}
+//         </div>
+//       );
+//     }
+//   }
+// }
 
 const mapStateToProps = state => {
   return {
