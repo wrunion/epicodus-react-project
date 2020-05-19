@@ -130,14 +130,6 @@ class ItemControl extends Component {
         />)
     );
   }
-
-  // renderButton() {
-  //   return (
-  //     <div id="AddItem">
-  //       <button className="ui button small basic green fluid" onClick={this.displayForm}>Add Item</button>
-  //     </div>
-  //   );
-  // }
   
   /* Actual render method */
   render() {

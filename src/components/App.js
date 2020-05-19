@@ -8,7 +8,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <div className="Header"><h1>AunTea's Organics</h1></div>
+      <div className="Header">
+        <h1>AunTea's Organics</h1></div>
+      {/* Grid for two display columns */}
       <div className="ui container grid">
         <div className="ui row">
           <div className="column eight wide">
