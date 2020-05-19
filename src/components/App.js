@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemControl from './ItemControl';
+import ItemDetail from './ItemDetail';
 import Footer from './Footer';
 import './App.css';
 
@@ -13,7 +14,7 @@ function App() {
             <ItemControl />
           </div>
           <div className="column eight wide">
-            {/* <ItemDetailView item={selectedItem} /> */}
+            <ItemDetail />
           </div>
           </div>
         </div>
