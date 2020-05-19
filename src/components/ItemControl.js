@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import Form from './Form';
-import ItemDisplayMode from './ItemDisplayMode';
+import Item from './Item';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
-// import InventoryList from './InventoryList';
 
 class ItemControl extends Component {
   state = {
@@ -12,17 +11,13 @@ class ItemControl extends Component {
   }
 
   componentDidMount = () => {
-
-    //make action creator and loop to display initial daa
     initialItemList.itemList.forEach((item) => {
       const action = {
         type: 'ADD_ITEM', 
         data: item
       }
       this.props.dispatch(action);
-      // this.displayForm();
-    })
-
+    });
   }
 
   displayForm = () => {
@@ -128,7 +123,7 @@ class ItemControl extends Component {
   renderItemList() {
     return (
     this.props.itemList.map(item =>
-      <ItemDisplayMode item={item}
+      <Item item={item}
         key={item.id}
         handleClickCallback={this.handleClickAll}
         />)
