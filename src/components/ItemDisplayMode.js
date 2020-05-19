@@ -2,17 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ItemDisplayMode = (props) => {
-
   function handleClick(args) {
     props.handleClickCallback(args);
   }
 
-  const { name, description, available, price, id } = props;
+  const { itemName, description, available, price, id } = props.item;
 
   return (
     <div className="ItemDisplayMode" key={id}>
     <hr />
-    <h3>{name}</h3>
+    <h3>{itemName}</h3>
       <p><em>{description}</em></p>
       <p>Available: {available} | Price: {price}</p>
       <button id={id} onClick={() => handleClick({id: id, action: "purchase"})} className="ui mini green button basic">Purchase</button>

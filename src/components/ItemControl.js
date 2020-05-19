@@ -3,17 +3,27 @@ import Form from './Form';
 import ItemDisplayMode from './ItemDisplayMode';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
-import InventoryList from './InventoryList';
+import initialItemList from '../itemlist.json';
+// import InventoryList from './InventoryList';
 
 class ItemControl extends Component {
   state = {
     itemSelected: null
   }
 
-  // componentDidMount =(props) => {
-  //   const items = this.props.itemList;
-  //   items ? items.
-  // }
+  componentDidMount = () => {
+
+    //make action creator and loop to display initial daa
+    initialItemList.itemList.forEach((item) => {
+      const action = {
+        type: 'ADD_ITEM', 
+        data: item
+      }
+      this.props.dispatch(action);
+      // this.displayForm();
+    })
+
+  }
 
   displayForm = () => {
     const action = {
@@ -118,13 +128,13 @@ class ItemControl extends Component {
   renderItemList() {
     return (
     this.props.itemList.map(item =>
-      <ItemDisplayMode 
-        key={item.id}
-        id={item.id}  
-        name={item.itemName}
-        description={item.description}
-        available={item.available}
-        price={item.price}
+      <ItemDisplayMode item={item}
+        // key={item.id}
+        // id={item.id}  
+        // name={item.itemName}
+        // description={item.description}
+        // available={item.available}
+        // price={item.price}
         handleClickCallback={this.handleClickAll}
         />)
     );
@@ -137,56 +147,47 @@ class ItemControl extends Component {
       </div>
     );
   }
-
-render () {
-  return (
-    <InventoryList />
-  );
-}
-}
-
+  
   /* Actual render method */
-//   render() {
-    
-//     const items = this.props.itemList;
-//     // {items ? items.
-//     console.log(this.props);
-//     console.log(this.props.itemList);
-//     const { itemSelected } = this.state;
-//     const { formShowing } = this.props.handleClick;
-//     const { itemList } = this.props;
-//     /* If an item has been selected for detail view */
-//     if (items && itemSelected !== null) {
-//       return (
-//         this.renderItemDetailView()
-//       );
-//     /* If user has clicked "Add Item" */
-//     } else if (formShowing) {
-//       return (
-//         <React.Fragment>
-//           {this.renderForm()}
-//           {this.renderItemList()}
-//         </React.Fragment>
-//       );
-//     /* If the first two are false, but there are items to show */  
-//     } else if ((formShowing === false) && (itemList.length > 0)) {
-//       return (
-//         <div className="ItemView">
-//           {this.renderButton()}  
-//           {this.renderItemList()}
-//         </div>
-//       );
-//     /* If itemList is empty */  
-//     } else {
-//       return (
-//         <div className="DefaultView">
-//           <h2>There are no items to display.</h2>
-//           {this.renderButton()}
-//         </div>
-//       );
-//     }
-//   }
-// }
+  render() {
+
+    const items = this.props.itemList;
+    const { itemSelected } = this.state;
+    const { formShowing } = this.props.handleClick;
+    const { itemList } = this.props;
+
+    /* If an item has been selected for detail view */
+    if (items && itemSelected !== null) {
+      return (
+        this.renderItemDetailView()
+      );
+    /* If user has clicked "Add Item" */
+    } else if (formShowing) {
+      return (
+        <React.Fragment>
+          {this.renderForm()}
+          {this.renderItemList()}
+        </React.Fragment>
+      );
+    /* If the first two are false, but there are items to show */  
+    } else if (itemList.length > 0) {
+      return (
+        <div className="ItemView">
+          {this.renderButton()}  
+          {this.renderItemList()}
+        </div>
+      );
+    /* If itemList is empty */  
+    } else {
+      return (
+        <div className="DefaultView">
+          <h2>There are no items to display.</h2>
+          {this.renderButton()}
+        </div>
+      );
+    }
+  }
+}
 
 const mapStateToProps = state => {
   return {
