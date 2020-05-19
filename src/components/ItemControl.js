@@ -4,6 +4,7 @@ import Item from './Item';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
+import TutorialItemList from './TutorialItemList';
 
 class ItemControl extends Component {
   state = {
@@ -122,11 +123,12 @@ class ItemControl extends Component {
   /* To show the item list */
   renderItemList() {
     return (
-    this.props.itemList.map(item =>
-      <Item item={item}
-        key={item.id}
-        handleClickCallback={this.handleClickAll}
-        />)
+      <TutorialItemList />
+    // this.props.itemList.map(item =>
+    //   <Item item={item}
+    //     key={item.id}
+    //     handleClickCallback={this.handleClickAll}
+    //     />)
     );
   }
 
