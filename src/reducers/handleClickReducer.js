@@ -1,4 +1,4 @@
-export default(state={}, action) => {
+export default(state={formShowing: false, selectedItem: null}, action) => {
   const { type, data } = action;
 
   switch(type) {

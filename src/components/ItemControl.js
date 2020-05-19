@@ -154,13 +154,13 @@ class ItemControl extends Component {
         this.renderItemDetailView()
       );
     /* If user has clicked "Add Item" */
-    } else if (formShowing) {
-      return (
-        <React.Fragment>
-          {this.renderItemList()}
-          {this.renderForm()}
-        </React.Fragment>
-      );
+    // } else if (formShowing) {
+    //   return (
+    //     <React.Fragment>
+    //       {this.renderItemList()}
+    //       {this.renderForm()}
+    //     </React.Fragment>
+    //   );
     /* If the first two are false, but there are items to show */  
     } else if (itemList.length > 0) {
       return (

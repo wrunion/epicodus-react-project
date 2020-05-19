@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Form from './Form';
+// import { addItem, toggleForm } from './../actions';
 
 class AddItem extends Component {
-  state ={
-    formShowing: false
-  }
-
-  // renderButton() {
-  //   return (
-  //     <div id="AddItem">
-  //       <button className="ui button small basic green fluid" onClick={this.displayForm}>Add Item</button>
-  //     </div>
-  //   );
-  // }
-
   toggleForm = () => {
-    this.setState({formShowing: !this.state.formShowing});
+    const action = {
+      type: 'TOGGLE_FORM'
+    }
+    this.props.dispatch(action);
   }
-
+  
   render() {
-    if (this.state.formShowing === false) {
+    const { formShowing } = this.props.handleClick;
+
+    if (formShowing === false) {
       return (
         <div id="AddItem">
           <button className="ui button small basic green fluid" onClick={this.toggleForm}>Add Item</button>
@@ -35,4 +30,11 @@ class AddItem extends Component {
   }
 }
 
-export default AddItem;
+const mapStateToProps = state => {
+  return {
+    itemList: state.itemList,
+    handleClick: state.handleClick
+  }
+}
+
+export default connect(mapStateToProps)(AddItem);
