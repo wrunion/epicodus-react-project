@@ -27,7 +27,7 @@ class AddItem extends Component {
       );
     } else {
     return(
-      <div classname="AddItem">
+      <div className="AddItem">
         <Form />
       </div>
     );

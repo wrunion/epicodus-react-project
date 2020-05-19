@@ -130,6 +130,15 @@ class ItemControl extends Component {
         />)
     );
   }
+  /* To show the add item button */
+
+  renderButton() {
+    return (
+      <div id="AddItem">
+        <button className="ui button small basic green fluid" onClick={this.displayForm}>Add Item</button>
+      </div>
+    );
+  }
   
   /* Actual render method */
   render() {
@@ -165,7 +174,7 @@ class ItemControl extends Component {
       return (
         <div className="DefaultView">
           <h2>There are no items to display.</h2>
-          
+          {this.renderButton()}
         </div>
       );
     }
