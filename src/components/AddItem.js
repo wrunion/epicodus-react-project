@@ -10,6 +10,16 @@ class AddItem extends Component {
     }
     this.props.dispatch(action);
   }
+
+  handleSubmitCallback = (props) => {
+    const item = props;
+    const action = {
+      type: 'ADD_ITEM',
+      data: item
+    }
+    this.props.dispatch(action);
+    console.log(this.props);
+  }
   
   render() {
     const { formShowing } = this.props.handleClick;
@@ -23,7 +33,7 @@ class AddItem extends Component {
     } else {
     return(
       <div className="AddItem">
-        <Form />
+        <Form handleSubmitCallback={this.handleSubmitCallback}/>
       </div>
     );
     }

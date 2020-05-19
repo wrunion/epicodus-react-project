@@ -4,11 +4,12 @@ import Item from './Item';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
+import { toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem } from './../actions';
 
 class ItemControl extends Component {
-  state = {
-    itemSelected: null
-  }
+  // state = {
+  //   itemSelected: null
+  // }
 
   componentDidMount = () => {
     initialItemList.itemList.forEach((item) => {
@@ -37,64 +38,64 @@ class ItemControl extends Component {
     this.setState({formShowing: false});
   }
 
-  handleCancelClick = () => {
-    this.setState({formShowing: false});
-    const action = {
-      type: 'CANCEL_CLICK',
-      data: null
-    }
-    this.props.dispatch(action);
-  }
+  // handleCancelClick = () => {
+  //   this.setState({formShowing: false});
+  //   const action = {
+  //     type: 'CANCEL_CLICK',
+  //     data: null
+  //   }
+  //   this.props.dispatch(action);
+  // }
   
-  findItemById = (id) => {
-    const item = this.state.itemList.filter(item => item.id === id)[0];
-    return item;
-  }
+  // findItemById = (id) => {
+  //   const item = this.state.itemList.filter(item => item.id === id)[0];
+  //   return item;
+  // }
 
-  /* THIS DOESN'T WORK YET */
-  deleteItem = (id) => {
-    const action = {
-      type: 'DELETE_ITEM',
-      data: id
-    }
-    this.props.dispatch(action);
-    // this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
-  }
+  // /* THIS DOESN'T WORK YET */
+  // deleteItem = (id) => {
+  //   const action = {
+  //     type: 'DELETE_ITEM',
+  //     data: id
+  //   }
+  //   this.props.dispatch(action);
+  //   // this.setState({itemList: this.state.itemList.filter(item => item.id !== id)});
+  // }
 
-  showDetailView = (id) => {
-    const item = this.findItemById(id);
-    this.setState({itemSelected: item.id});
-    return item;
-  }
+  // showDetailView = (id) => {
+  //   const item = this.findItemById(id);
+  //   this.setState({itemSelected: item.id});
+  //   return item;
+  // }
    
-  purchaseItem = (id) => {
-    this.setState({itemList: this.state.itemList.map(item => {
-      if (item.id === id) {
-        return {
-          itemName: item.itemName,
-          description: item.description,
-          available: item.available >= 1 ?  item.available - 1 : 0,
-          price: item.price, 
-          id: item.id
-        } 
-      } else {
-        return item;
-      }
-    })});
-  }
+  // purchaseItem = (id) => {
+  //   this.setState({itemList: this.state.itemList.map(item => {
+  //     if (item.id === id) {
+  //       return {
+  //         itemName: item.itemName,
+  //         description: item.description,
+  //         available: item.available >= 1 ?  item.available - 1 : 0,
+  //         price: item.price, 
+  //         id: item.id
+  //       } 
+  //     } else {
+  //       return item;
+  //     }
+  //   })});
+  // }
 
-  handleClickAll = (args) => {
-    const { action, id } = args;
-    if (action === "details") {
-      this.showDetailView(id)
-    } else if (action === "purchase") {
-      this.purchaseItem(id);
-    } else if (action === "delete") {
-      this.deleteItem(id);
-    } else {
-      console.log('There was an error with handleClickAll');
-    }
-  }
+  // handleClickAll = (args) => {
+  //   const { action, id } = args;
+  //   if (action === "details") {
+  //     this.showDetailView(id)
+  //   } else if (action === "purchase") {
+  //     this.purchaseItem(id);
+  //   } else if (action === "delete") {
+  //     this.deleteItem(id);
+  //   } else {
+  //     console.log('There was an error with handleClickAll');
+  //   }
+  // }
 
   /* RENDER METHODS */
 
@@ -102,7 +103,13 @@ class ItemControl extends Component {
   renderForm() {
     return (
       <Form handleSubmitCallback={this.handleFormSubmit} 
-      handleCancelClick={this.handleCancelClick} />
+      handleCancelClick={() => {
+        const action = {
+          type: 'TOGGLE_FORM',
+          data: null
+        }
+        this.props.dispatch(action);
+      }} />
     );
   }
   
@@ -144,24 +151,17 @@ class ItemControl extends Component {
   render() {
 
     const items = this.props.itemList;
-    const { itemSelected } = this.state;
+    const { itemSelected, itemList } = this.props;
     const { formShowing } = this.props.handleClick;
-    const { itemList } = this.props;
+    // const { itemList } = this.props;
+
+    // toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem
 
     /* If an item has been selected for detail view */
-    if (items && itemSelected !== null) {
+    if (items && itemSelected === null) {
       return (
         this.renderItemDetailView()
       );
-    /* If user has clicked "Add Item" */
-    // } else if (formShowing) {
-    //   return (
-    //     <React.Fragment>
-    //       {this.renderItemList()}
-    //       {this.renderForm()}
-    //     </React.Fragment>
-    //   );
-    /* If the first two are false, but there are items to show */  
     } else if (itemList.length > 0) {
       return (
         <div className="ItemView">
