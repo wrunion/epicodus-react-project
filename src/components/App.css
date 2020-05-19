@@ -6,6 +6,7 @@
   padding: 1em;
 }
 
+
 .App a:link, a:visited {
   text-decoration: none;
   color: darkgrey;
@@ -48,18 +49,4 @@
   color: darkgrey;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
-}
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+} 

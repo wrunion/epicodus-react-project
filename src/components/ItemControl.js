@@ -155,16 +155,16 @@ class ItemControl extends Component {
     } else if (formShowing) {
       return (
         <React.Fragment>
-          {this.renderForm()}
           {this.renderItemList()}
+          {this.renderForm()}
         </React.Fragment>
       );
     /* If the first two are false, but there are items to show */  
     } else if (itemList.length > 0) {
       return (
         <div className="ItemView">
-          {this.renderButton()}  
           {this.renderItemList()}
+          {this.renderButton()}  
         </div>
       );
     /* If itemList is empty */  

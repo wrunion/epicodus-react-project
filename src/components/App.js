@@ -7,7 +7,16 @@ function App() {
   return (
     <div className="App">
       <div className="Header"><h1>AunTea's Organics</h1></div>
-      <ItemControl />
+      <div className="ui container grid">
+        <div className="ui row">
+          <div className="column eight wide">
+            <ItemControl />
+          </div>
+          <div className="column eight wide">
+            {/* <ItemDetailView item={selectedItem} /> */}
+          </div>
+          </div>
+        </div>
       <Footer />
     </div>
   );
