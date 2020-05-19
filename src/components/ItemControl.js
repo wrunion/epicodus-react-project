@@ -129,12 +129,7 @@ class ItemControl extends Component {
     return (
     this.props.itemList.map(item =>
       <ItemDisplayMode item={item}
-        // key={item.id}
-        // id={item.id}  
-        // name={item.itemName}
-        // description={item.description}
-        // available={item.available}
-        // price={item.price}
+        key={item.id}
         handleClickCallback={this.handleClickAll}
         />)
     );

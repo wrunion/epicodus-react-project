@@ -39,9 +39,20 @@ function InventoryList() {
       id: 5
     }
   ] 
+
+  const blue = true;
+
   return (
     <div>
-      {inventory.map(item => <ItemDetailView item={item} />)}
+      {blue ? <div>Yes blue</div> : <div>No blue</div>}
+      {/* {
+        (true) ? <div></div> :
+        (false) ? '' :
+         ''
+        () => {if (true) return <div>fujsx</div>}
+      
+      
+      } */}
     </div>
   );
 }
