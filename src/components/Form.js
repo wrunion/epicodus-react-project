@@ -11,9 +11,6 @@ class Form extends Component {
       itemName: e.target.itemName.value,
       price: e.target.price.value
      });
-     /* THIS CONSOLE LOG WORKS */
-     console.log(e.target.itemName.value,
-      e.target.price.value)
   }
 
   render() {
@@ -22,10 +19,14 @@ class Form extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text"
             id="itemName"
-            placeholder="Item Name" />
+            placeholder="Item Name"
+            defaultValue="shoes"
+            required />
           <input type="number"
             id="price"
-            placeholder="Item Price" />
+            placeholder="Item Price"
+            defaultValue={20}
+            required />
           <button type="submit">Add Item</button>  
           <button type="button" onClick={this.props.handleCancelClick}>Cancel</button>
         </form>
