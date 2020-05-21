@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { showForm, hideForm } from './../actions';
 import Form from './Form';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class FormControl extends React.Component {
 
@@ -11,7 +11,7 @@ class FormControl extends React.Component {
   // }
 
   handleCancelClick = () => {
-    this.props.hideForm();
+    this.props.hideForm(); 
   }
 
   render() {
@@ -26,7 +26,10 @@ class FormControl extends React.Component {
   }
 }
 
-// Add PropTypes here
+/* Do I include PropTypes for things passed in from state? */
+// FormControl.propTypes = {
+//   // formShowing: bool --> from state 
+// };
 
 const mapStateToProps = state => {
   return {

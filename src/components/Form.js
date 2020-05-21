@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { addItem } from './../actions';
 
 class Form extends Component {
@@ -29,18 +30,12 @@ class Form extends Component {
           <button type="button" onClick={this.props.handleCancelClick}>Cancel</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
-/* PROPS.HANDLECANCELCLICK IS COMING FROM FORMCONTROL */
-
-// const mapStateToProps = state => {
-//   return {
-//     formShowing: state.toggleFormReducer.formShowing
-//   }
-// }
-
-// export default connect(mapStateToProps, { showForm }) (FormControl);
+Form.propTypes = {
+  handleCancelClick: PropTypes.func,
+};
 
 export default connect(null, { addItem } )(Form);
