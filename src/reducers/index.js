@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import itemReducer from './itemReducer';
 import toggleFormReducer from './toggleFormReducer';
-// import { selectedItemReducer } from ' ./selectedItemReducer';
+// import { selectedItemReducer } from './selectedItemReducer';
 
 /* NOTE: selectedItemReducer won't import */
 const rootReducer = combineReducers({

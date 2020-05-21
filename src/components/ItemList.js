@@ -15,7 +15,7 @@ function ItemList(props) {
         <div className="item" key={item.id}>
           {item.itemName}:  ${item.price}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
-          <button onClick={()=> props.selectItem()}>Show Details</button>
+          <button onClick={()=> props.selectItem(item)}>Show Details</button>
         </div>
       )}
     </div>

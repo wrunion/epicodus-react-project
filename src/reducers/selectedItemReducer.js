@@ -1,5 +1,4 @@
-/* NOTE: this isn't exporting correctly for some reason */
-export default (state={selectedItem: null, editing: false}, action) => {
+export default(state={selectedItem: null, editing: false}, action) => {
   const { type, data } = action;
 
   switch(type) {

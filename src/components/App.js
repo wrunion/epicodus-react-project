@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import FormControl from './FormControl';
 import ItemList from './ItemList';
+// import ItemDetails from './ItemDetails';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
         <h1>App</h1>
         <FormControl />
         <ItemList /> 
+        {/* <ItemDetails /> */}
       </div>
     )
   }
