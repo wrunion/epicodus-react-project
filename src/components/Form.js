@@ -3,6 +3,15 @@ import { connect } from 'react-redux';
 import { addItem } from './../actions';
 
 class Form extends Component {
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addItem({
+      itemName: e.target.itemName.value,
+      price: e.target.price.value
+     });
+  }
+
   render() {
     return (
       <div className="Form">
@@ -20,4 +29,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default connect(null, { addItem } )(Form);
