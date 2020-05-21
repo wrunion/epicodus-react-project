@@ -6,16 +6,18 @@ import Form from './Form';
 
 class FormControl extends React.Component {
 
-  handleClick = () => {
-    this.props.showForm();
-  }
+  // handleClick = () => {
+  //   this.props.showForm();
+  // }
 
   render() {
     return ( 
       <div className="FormControl">
+        {/* <Form /> */}
         {this.props.formShowing
         ? <Form /> 
-        : <button onClick={this.handleClick}>Add Item</button>}
+        : <button 
+            onClick={() => this.props.showForm()}>Add Item</button>}
       </div>
     );
   }
@@ -25,7 +27,7 @@ class FormControl extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    formShowing: state.formShowing
+    formShowing: state.toggleFormReducer.formShowing
   }
 }
 

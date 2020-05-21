@@ -10,12 +10,15 @@ class Form extends Component {
       itemName: e.target.itemName.value,
       price: e.target.price.value
      });
+     /* THIS CONSOLE LOG WORKS */
+     console.log(e.target.itemName.value,
+      e.target.price.value)
   }
 
   render() {
     return (
       <div className="Form">
-        <Form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <input type="text"
             id="itemName"
             placeholder="Item Name" />
@@ -23,7 +26,7 @@ class Form extends Component {
             id="price"
             placeholder="Item Price" />
           <button type="submit">Add Item</button>  
-        </Form>
+        </form>
       </div>
     )
   }
