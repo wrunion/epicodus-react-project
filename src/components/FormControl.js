@@ -5,11 +5,7 @@ import Form from './Form';
 import PropTypes from 'prop-types';
 
 class FormControl extends React.Component {
-
-  // handleClick = () => {
-  //   this.props.showForm();
-  // }
-
+  /* Callback to pass to Form component. Allows FormControl to handle interfacing with Redux, instead of wiring up the Form component to do that as well */
   handleCancelClick = () => {
     this.props.hideForm(); 
   }
@@ -26,10 +22,10 @@ class FormControl extends React.Component {
   }
 }
 
-/* Do I include PropTypes for things passed in from state? */
-// FormControl.propTypes = {
-//   // formShowing: bool --> from state 
-// };
+FormControl.propTypes = {
+  showForm: PropTypes.func,
+  formShowing: PropTypes.bool
+};
 
 const mapStateToProps = state => {
   return {

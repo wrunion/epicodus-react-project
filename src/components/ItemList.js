@@ -1,11 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-// import { selectItem } from './../actions';
-
-// import itemReducer from '../reducers/itemReducer';
-// import selectedItemReducer from '../reducers/selectedItemReducer';
-
 function ItemList(props) {
   if (!props.items) {
     return (
