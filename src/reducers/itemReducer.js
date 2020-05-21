@@ -4,7 +4,7 @@ export default (state = [], action) => {
   switch(type) {
     case "ADD_ITEM":
       return [...state, data];
-    case 'EDIT_ITEM':
+    case 'UPDATE_ITEM':
       return state.map(e => e.id === data.id ? data : e);
     case 'DELETE_ITEM':
       return state.filter(e => e.id !== data.id);  

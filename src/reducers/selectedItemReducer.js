@@ -1,10 +1,12 @@
 /* NOTE: this isn't exporting correctly for some reason */
-export default (state={selectedItem: null}, action) => {
+export default (state={selectedItem: null, editing: false}, action) => {
   const { type, data } = action;
 
   switch(type) {
-    case 'SELECT_ITEM_CLICK':
-      return { ...state,  selectedItem: data};  
+    case 'SELECT_ITEM':
+      return { ...state,  selectedItem: data};
+    case 'EDIT_CLICK':
+      return { ...state, editing: true};     
     default:
       return state;  
   }

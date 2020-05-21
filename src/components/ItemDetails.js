@@ -16,10 +16,11 @@ function ItemDetails(props) {
   )
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     selectedItem: 
-//   }
-// }
+const mapStateToProps = state => {
+  return {
+    selectedItem: state.selectedItemReducer.selectedItem,
+    itemToEdit: state.selectedItemReducer.itemToEdit
+  }
+}
 
-export default connect(null, { editItem })(ItemDetails);
+export default connect(mapStateToProps, { editItem })(ItemDetails);
