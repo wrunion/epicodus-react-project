@@ -4,7 +4,7 @@ import { deleteItem, selectItem } from './../actions';
 // import UpdateItem from './UpdateItem';
 
 function ItemList(props) {
-  if (props.items == false) {
+  if (props.items === false) {
     return (
       <h3>There are no items to display</h3>
     );
