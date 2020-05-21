@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { deleteItem, selectItem } from './../actions';
+// import UpdateItem from './UpdateItem';
 
 function ItemList(props) {
   if (props.items == false) {
@@ -16,6 +17,7 @@ function ItemList(props) {
           {item.itemName}:  ${item.price}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
           <button onClick={()=> props.selectItem(item)}>Show Details</button>
+          {/* <UpdateItem item={item} /> */}
         </div>
       )}
     </div>

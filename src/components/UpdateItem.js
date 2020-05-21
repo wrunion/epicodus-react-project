@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addItem } from './../actions';
+import { addItem } from '../actions';
 
 class UpdateItem extends Component {
 
@@ -10,7 +10,7 @@ class UpdateItem extends Component {
     this.props.addItem({
       itemName: e.target.itemName.value,
       price: e.target.price.value,
-      id: this.props.id
+      id: this.props.item.id
      });
   }
 
