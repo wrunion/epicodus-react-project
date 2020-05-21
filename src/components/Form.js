@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addItem } from './../actions';
+import { v4 } from 'uuid';
+
 
 class Form extends Component {
 
@@ -9,7 +11,8 @@ class Form extends Component {
     e.preventDefault();
     this.props.addItem({
       itemName: e.target.itemName.value,
-      price: e.target.price.value
+      price: e.target.price.value,
+      id: v4()
      });
   }
 

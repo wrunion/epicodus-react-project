@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { deleteItem } from './../actions';
 
 function ItemList(props) {
   if (!props.items) {
@@ -10,9 +11,12 @@ function ItemList(props) {
   return (
     <div className="ItemList flex-container">
       <h3>The Inventory Is:</h3>
+      {/* HAVE THIS PASS DOWN THIS ITEM AS A WHOLE, INSTEAD OF DETAILS. THEN DECONSTRUCT IT FROM THE OTHER END  */}
       {props.items.map(item => 
         <div className="item">
           {item.itemName}:  ${item.price}
+          <button onClick={() => props.deleteItem(item)}>Delete</button>
+          {/* <button>Show Details</button> */}
         </div>
       )}
     </div>
@@ -25,7 +29,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ItemList);
+export default connect(mapStateToProps, { deleteItem })(ItemList);
 
 
 // class ItemList extends Component {

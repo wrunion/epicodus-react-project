@@ -11,12 +11,12 @@ export const addItem = (item) => {
 //     data: item
 //   };
 // };
-// export const deleteItem = (item) => {
-//   return {
-//     type: 'DELETE_ITEM',
-//     data: item
-//   };
-// };
+export const deleteItem = (item) => {
+  return {
+    type: 'DELETE_ITEM',
+    data: item
+  };
+};
 
 /* Actions for handleClickReducer */
 // export const cancelClick = (event) => {
