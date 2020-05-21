@@ -38,4 +38,16 @@ export const toggleForm = () => {
   };
 };
 
+export const showForm = () => {
+  return {
+    type: 'SHOW_FORM'
+  };
+};
+
+export const hideForm = () => {
+  return {
+    type: 'HIDE_FORM'
+  };
+};
+
 // toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem
