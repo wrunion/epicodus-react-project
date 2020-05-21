@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { deleteItem } from './../actions';
 
 function ItemList(props) {
-  if (!props.items) {
+  if (props.items == false) {
     return (
       <h3>There are no items to display</h3>
     );
@@ -11,9 +11,9 @@ function ItemList(props) {
   return (
     <div className="ItemList flex-container">
       <h3>The Inventory Is:</h3>
-      {/* HAVE THIS PASS DOWN THIS ITEM AS A WHOLE, INSTEAD OF DETAILS. THEN DECONSTRUCT IT FROM THE OTHER END  */}
+      {/* MAYBE HAVE THIS PASS DOWN THIS ITEM AS A WHOLE, INSTEAD OF DETAILS. THEN DECONSTRUCT IT FROM THE OTHER END?  */}
       {props.items.map(item => 
-        <div className="item">
+        <div className="item" key={item.id}>
           {item.itemName}:  ${item.price}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
           {/* <button>Show Details</button> */}
