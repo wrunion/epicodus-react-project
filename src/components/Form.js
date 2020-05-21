@@ -26,10 +26,21 @@ class Form extends Component {
             id="price"
             placeholder="Item Price" />
           <button type="submit">Add Item</button>  
+          <button type="button" onClick={this.props.handleCancelClick}>Cancel</button>
         </form>
       </div>
     )
   }
 }
+
+/* PROPS.HANDLECANCELCLICK IS COMING FROM FORMCONTROL */
+
+// const mapStateToProps = state => {
+//   return {
+//     formShowing: state.toggleFormReducer.formShowing
+//   }
+// }
+
+// export default connect(mapStateToProps, { showForm }) (FormControl);
 
 export default connect(null, { addItem } )(Form);
