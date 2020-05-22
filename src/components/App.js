@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import './App.css';
 import FormControl from './FormControl';
 import ItemList from './ItemList';
 import ItemDetails from './ItemDetails';
-import { connect } from 'react-redux';
 
 class App extends Component {
 

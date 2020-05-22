@@ -10,18 +10,18 @@ function ItemDetails(props) {
       <div className="ItemDetails" key={item.id}>
         {item.itemName}:  ${item.price}
         {/* <button onClick={() => props.deleteItem(item)}>Purchase</button> */}  
-        <button onClick={() => props.updateItem(item)}>Edit</button>
+        {/* <button onClick={() => props.updateItem(item)}>Edit</button> */}
         <button onClick={() => props.deleteItem(item)}>Delete</button>
       </div>
     )
   }
 
 
-const mapStateToProps = state => {
-  return {
-    selectedItem: state.selectedItemReducer.selectedItem,
-    itemToEdit: state.selectedItemReducer.itemToEdit
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     selectedItem: state.selectedItemReducer.selectedItem,
+//     itemToEdit: state.selectedItemReducer.itemToEdit
+//   }
+// }
 
-export default connect(mapStateToProps, { updateItem, deleteItem })(ItemDetails);
+export default connect(null, { updateItem, deleteItem })(ItemDetails);
