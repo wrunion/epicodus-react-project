@@ -4,7 +4,7 @@ export default (state={selectedItem: null, editing: false}, action) => {
   switch(type) {
     case 'SELECT_ITEM':
       return { ...state,  selectedItem: data};
-    case 'EDIT_CLICK':
+    case 'EDIT_ITEM':
       return { ...state, editing: true};     
     default:
       return state;  

@@ -6,12 +6,12 @@ export const addItem = (item) => {
   };
 };
 
-export const updateItem = (item) => {
-  return {
-    type: 'UPDATE_ITEM',
-    data: item
-  };
-};
+// export const updateItem = (item) => {
+//   return {
+//     type: 'UPDATE_ITEM',
+//     data: item
+//   };
+// };
 
 export const deleteItem = (item) => {
   return {
@@ -41,7 +41,7 @@ export const selectItem = (item) => {
   };
 };
 
-export const selectItemToEdit = (item) => {
+export const editItem = (item) => {
   return {
     type: 'EDIT_CLICK', 
     data: item

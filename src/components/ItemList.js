@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { deleteItem, selectItem } from './../actions';
-// import UpdateItem from './UpdateItem';
+import { deleteItem, selectItem, editItem } from './../actions';
 
 function ItemList(props) {
-  if (props.items === false) {
+  
+  if (props.items.length === 0) {
     return (
       <h3>There are no items to display</h3>
     );
@@ -17,7 +17,7 @@ function ItemList(props) {
           {item.itemName}:  ${item.price}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
           <button onClick={()=> props.selectItem(item)}>Show Details</button>
-          {/* <UpdateItem item={item} /> */}
+          <button onClick={()=> props.editItem(item)}>Edit</button>
         </div>
       )}
     </div>
@@ -26,8 +26,9 @@ function ItemList(props) {
 
 const mapStateToProps = state => { 
   return {
-    items: state.itemReducer
+    items: state.itemReducer,
+    editing: state.selectedItemReducer.editing
   }
 }
 
-export default connect(mapStateToProps, { deleteItem, selectItem })(ItemList);
+export default connect(mapStateToProps, { deleteItem, selectItem, editItem })(ItemList);

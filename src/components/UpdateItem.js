@@ -15,7 +15,6 @@ class UpdateItem extends Component {
   }
 
   render() {
-    const { item } = this.props;
 
     return (
       <div className="UpdateItem">
@@ -23,12 +22,12 @@ class UpdateItem extends Component {
           <input type="text"
             id="itemName"
             placeholder="Item Name"
-            defaultValue={item.itemName}
+            defaultValue={this.props.itemName}
             required />
           <input type="number"
             id="price"
             placeholder="Item Price"
-            defaultValue={item.price}
+            defaultValue={this.props.price}
             required />
           <button type="submit">Update Item</button>  
           <button type="button" onClick={this.props.handleCancelClick}>Cancel</button>
