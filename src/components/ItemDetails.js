@@ -2,11 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux';
 import { updateItem, deleteItem } from './../actions';
 
-
 function ItemDetails(props) {
-  const { item } = props;
 
-  if (props.selectedItem) {
+    const { item } = props;
+
     return (
       <div className="ItemDetails" key={item.id}>
         {item.itemName}:  ${item.price}
@@ -16,12 +15,12 @@ function ItemDetails(props) {
       </div>
     )
   }
-}
+
 
 const mapStateToProps = state => {
   return {
     selectedItem: state.selectedItemReducer.selectedItem,
-    editing: state.selectedItemReducer.editing
+    itemToEdit: state.selectedItemReducer.itemToEdit
   }
 }
 

@@ -6,12 +6,12 @@ export const addItem = (item) => {
   };
 };
 
-// export const updateItem = (item) => {
-//   return {
-//     type: 'UPDATE_ITEM',
-//     data: item
-//   };
-// };
+export const updateItem = (item) => {
+  return {
+    type: 'UPDATE_ITEM',
+    data: item
+  };
+};
 
 export const deleteItem = (item) => {
   return {

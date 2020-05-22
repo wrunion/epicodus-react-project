@@ -20,6 +20,8 @@ function ItemList(props) {
   //     <p>Selected item is {props.selectedItem}</p>
   //   )
   // }
+
+
   return (
     <div className="ItemList flex-container">
       <h3>The Inventory Is:</h3>
