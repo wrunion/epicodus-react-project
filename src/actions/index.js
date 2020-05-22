@@ -36,7 +36,7 @@ export const hideForm = () => {
 /* Actions for selectedItemReducer */
 export const selectItem = (item) => {
   return {
-    type: 'ITEM_SELECTED',
+    type: 'SELECT_ITEM',
     data: item
   };
 };

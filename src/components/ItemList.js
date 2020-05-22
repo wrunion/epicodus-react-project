@@ -3,11 +3,22 @@ import { connect } from 'react-redux';
 import { deleteItem, selectItem, editItem } from './../actions';
 
 function ItemList(props) {
-  
-  if (props.items.length === 0) {
+
+  // if (props.items.length === 0) {
+  //   return (
+  //     <h3>There are no items to display</h3>
+  //   );
+  // } else if (selectedItem !== null) {
+  //   return (
+  //     <div>
+  //       edit goes here;
+  //     </div>
+  //   );
+  // }
+  if (props.selectedItem !== null) {
     return (
-      <h3>There are no items to display</h3>
-    );
+      <p>Selected item is {props.selectedItem}</p>
+    )
   }
   return (
     <div className="ItemList flex-container">
@@ -27,7 +38,8 @@ function ItemList(props) {
 const mapStateToProps = state => { 
   return {
     items: state.itemReducer,
-    editing: state.selectedItemReducer.editing
+    editing: state.selectedItemReducer.editing,
+    selectedItem: state.selectedItemReducer.selectedItem
   }
 }
 
