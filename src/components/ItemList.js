@@ -28,7 +28,7 @@ function ItemList(props) {
           {item.itemName}:  ${item.price}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
           <button onClick={()=> props.selectItem(item)}>Show Details</button>
-          <button onClick={()=> props.editItem(item)}>Edit</button>
+          <button onClick={()=> props.editItem(item)}>Edit Item</button>
         </div>
       )}
     </div>
@@ -38,8 +38,8 @@ function ItemList(props) {
 const mapStateToProps = state => { 
   return {
     items: state.itemReducer,
-    editing: state.selectedItemReducer.editing,
-    selectedItem: state.selectedItemReducer.selectedItem
+    selectedItem: state.selectedItemReducer.selectedItem,
+    itemToEdit: state.selectedItemReducer.itemToEdit
   }
 }
 
