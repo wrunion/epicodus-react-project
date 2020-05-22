@@ -43,7 +43,7 @@ export const selectItem = (item) => {
 
 export const editItem = (item) => {
   return {
-    type: 'EDIT_CLICK', 
+    type: 'SELECT_ITEM_TO_EDIT', 
     data: item
   }
 }

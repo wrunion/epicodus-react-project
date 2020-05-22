@@ -1,13 +1,11 @@
-export default (state={selectedItem: null, editing: null}, action) => {
-  const { type, data } = action;
+export default(state={}, action) => {
 
-  switch(type) {
+  switch(action.type) {
+    case 'SELECT_ITEM_TO_EDIT':
+      return Object.assign({}, state, {itemToEdit: action.data} );
     case 'SELECT_ITEM':
-      return { ...state,  selectedItem: data};
-    case 'EDIT_ITEM':
-      const newState = { ...state, editing: data};
-      return { state: newState};     
-    default:
-      return state;  
+      return Object.assign({}, state, {selectedItem: action.data});
+  default:
+    return state;
   }
 }
