@@ -7,7 +7,9 @@ export default (state = [], action) => {
     case 'UPDATE_ITEM':
       return state.map(e => e.id === data.id ? data : e);
     case 'DELETE_ITEM':
-      return state.filter(e => e.id !== data.id);  
+      return state.filter(e => e.id !== data.id); 
+    case 'PURCHASE_ITEM':
+      return (state.map(e => e.id === data.id ? data.available -- : data));   
     default:
       return state;
   }

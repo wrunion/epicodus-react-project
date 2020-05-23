@@ -20,6 +20,13 @@ export const deleteItem = (item) => {
   };
 };
 
+export const purchaseItem = (item) => {
+  return {
+    type: 'PURCHASE_ITEM',
+    data: item
+  }
+}
+
 /* Items for formReducer */
 export const showForm = () => {
   return {

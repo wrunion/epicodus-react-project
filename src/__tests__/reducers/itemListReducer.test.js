@@ -1,4 +1,4 @@
-import reducer from '../../reducers/itemListReducer';
+import reducer from './../../reducers/itemReducer';
 
 describe('reducer', () => {
   /* Default setup test */
