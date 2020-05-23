@@ -12,7 +12,7 @@ class App extends Component {
       <div className="App grid-container">
         <h1>App</h1>
         <FormControl />
-        <ItemList />
+        <ItemList items={this.props.items}/>
         {this.props.selectedItem ? 
           <ItemDetails item={this.props.selectedItem} />
           : null }
@@ -23,6 +23,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
+    items: state.itemReducer,
     selectedItem: state.selectedItemReducer.selectedItem,
     itemToEdit: state.selectedItemReducer.itemToEdit
   }

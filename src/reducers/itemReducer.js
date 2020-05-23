@@ -1,4 +1,26 @@
-export default (state = [], action) => {
+const initState = [
+  {
+    itemName: "Red Shoes",
+    price: 10, 
+    available: 10,
+    id: 1
+  },
+  {
+    itemName: "Blue Shoes",
+    price: 10, 
+    available: 10,
+    id: 2,
+  },
+  {
+    itemName: "Green Shoes",
+    price: 10, 
+    available: 10,
+    id: 3
+  }  
+]
+
+
+export default (state = initState, action) => {
   const { type, data } = action;
 
   switch(type) {

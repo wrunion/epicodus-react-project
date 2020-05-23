@@ -10,7 +10,7 @@ function ItemList(props) {
       <h3>The Inventory Is:</h3>
       {props.items.map(item => 
         <div className="item" key={item.id}>
-          {item.itemName}:  ${item.price} | {item.available}
+          {item.itemName}:  ${item.price} | Available: {item.available}
           <button onClick={() => props.deleteItem(item)}>Delete</button>
           <button onClick={()=> props.selectItem(item)}>Show Details</button>
           {/* <button onClick={()=> props.editItem(item)}>Edit Item</button> */}
@@ -22,7 +22,6 @@ function ItemList(props) {
 
 const mapStateToProps = state => { 
   return {
-    items: state.itemReducer,
     selectedItem: state.selectedItemReducer.selectedItem,
     itemToEdit: state.selectedItemReducer.itemToEdit
   }
