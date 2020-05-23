@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import ItemDetailView from './ItemDetailView';
-import Form from './Form';
 import Item from './Item';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
-import { hideForm, showForm, addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
+import { addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
 
 /* formReducer actions: hideForm, showForm */
 
@@ -97,8 +96,9 @@ class ItemControl extends Component {
   //   );
   // }
   
-  handleClickCallback = ({ item }) => {
+  handleClickCallback = (item) => {
     console.log(`item click callback`);
+    console.log(item);
     this.props.selectItem(item);
   }
 
@@ -138,20 +138,8 @@ class ItemControl extends Component {
   
   /* Actual render method */
   render() {
-
-    const items = this.props.itemList;
-    const { itemSelected, itemList } = this.props;
-    const { formShowing } = this.props.handleClick;
-    // const { itemList } = this.props;
-
-    // toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem
-
-    /* If an item has been selected for detail view */
-    if (items && itemSelected === null) {
-      return (
-        this.renderItemDetailView()
-      );
-    } else if (itemList.length > 0) {
+  const { itemList } = this.props;
+   if (itemList.length > 0) {
       return (
         this.props.itemList.map(item =>
           <Item item={item}
@@ -181,4 +169,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { hideForm, showForm, addItem, editItem, deleteItem, selectItemToEdit, selectItem })(ItemControl);
+export default connect(mapStateToProps, { addItem, editItem, deleteItem, selectItemToEdit, selectItem })(ItemControl);
