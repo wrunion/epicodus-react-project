@@ -17,12 +17,13 @@ function App() {
           </div>
           <div className="column eight wide">
             <ItemDetail />
+            <AddItem />
           </div>
         </div>
       </div>
       <div className="ui container grid">
         <div className="column sixteen wide">
-          <AddItem />
+
         </div>
       </div>
       <Footer />

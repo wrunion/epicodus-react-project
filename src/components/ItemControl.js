@@ -4,7 +4,7 @@ import Item from './Item';
 import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
-import { toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem } from './../actions';
+import { hideForm, showForm, addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
 
 /* formReducer actions: hideForm, showForm */
 
@@ -185,8 +185,9 @@ class ItemControl extends Component {
 const mapStateToProps = state => {
   return {
     itemList: state.itemList,
-    handleClick: state.handleClick
+    handleClick: state.handleClick,
+    formShowing: state.formShowing
   }
 }
 
-export default connect(mapStateToProps, { addItem })(ItemControl);
+export default connect(mapStateToProps, { hideForm, showForm, addItem, editItem, deleteItem, selectItemToEdit, selectItem })(ItemControl);
