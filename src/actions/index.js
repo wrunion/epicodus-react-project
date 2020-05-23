@@ -1,7 +1,9 @@
+import constants from './constants';
+
 /* Actions for itemListReducer */
 export const addItem = (item) => {
   return {
-    type: 'ADD_ITEM',
+    type: constants.ADD_ITEM,
     data: item
   };
 };

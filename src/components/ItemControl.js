@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import ItemDetailView from './ItemDetailView';
 import Item from './Item';
+import OldItemDisplayMode from './OldItemDisplayMode';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
 import { addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
@@ -22,8 +23,6 @@ class ItemControl extends Component {
   }
 
   handleClickCallback = (item) => {
-    console.log(`item click callback`);
-    console.log(item);
     this.props.selectItem(item);
   }
 
@@ -48,7 +47,7 @@ class ItemControl extends Component {
    if (itemList.length > 0) {
       return (
         this.props.itemList.map(item =>
-          <Item item={item}
+          <OldItemDisplayMode item={item}
             key={item.id}
             handleClickCallback={this.handleClickCallback}
             />)
