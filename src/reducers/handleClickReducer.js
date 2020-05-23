@@ -1,16 +1,11 @@
-export default(state={formShowing: false, selectedItem: null}, action) => {
-  const { type, data } = action;
+export default(state={}, action) => {
 
-  switch(type) {
-    case 'CANCEL_CLICK': 
-      return { ...state, formShowing: false };
-    case 'SELECT_ITEM_CLICK':
-      return { ...state,  selectedItem: data}; 
-    case 'ENTER_EDIT_MODE': 
-      return { ...state, editing: true };
-    case 'TOGGLE_FORM':
-      return { formShowing: !state.formShowing };  
-    default:
-      return state;  
+  switch(action.type) {
+    case 'SELECT_ITEM_TO_EDIT':
+      return Object.assign({}, state, {itemToEdit: action.data} );
+    case 'SELECT_ITEM':
+      return Object.assign({}, state, {selectedItem: action.data});
+  default:
+    return state;
   }
 }
