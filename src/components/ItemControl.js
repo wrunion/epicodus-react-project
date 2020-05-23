@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import ItemDetailView from './ItemDetailView';
 import Form from './Form';
 import Item from './Item';
-import ItemDetailView from './ItemDetailView';
 import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
 import { hideForm, showForm, addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
@@ -20,23 +20,6 @@ class ItemControl extends Component {
     initialItemList.itemList.forEach((item) => {
       this.props.addItem(item)
     });
-  }
-
-  displayForm = () => {
-    const action = {
-      type: 'TOGGLE_FORM',
-      data: null
-    }
-    this.props.dispatch(action);
-  }
-
-  handleFormSubmit = (item) => {
-    const action = {
-      type: 'ADD_ITEM',
-      data: item
-    }
-    this.props.dispatch(action);
-    this.setState({formShowing: false});
   }
 
   // handleCancelClick = () => {
@@ -101,19 +84,24 @@ class ItemControl extends Component {
   /* RENDER METHODS */
 
   /* To display the form */ 
-  renderForm() {
-    return (
-      <Form handleSubmitCallback={this.handleFormSubmit} 
-      handleCancelClick={() => {
-        const action = {
-          type: 'TOGGLE_FORM',
-          data: null
-        }
-        this.props.dispatch(action);
-      }} />
-    );
-  }
+  // renderForm() {
+  //   return (
+  //     <Form handleSubmitCallback={this.handleFormSubmit} 
+  //     handleCancelClick={() => {
+  //       const action = {
+  //         type: 'TOGGLE_FORM',
+  //         data: null
+  //       }
+  //       this.props.dispatch(action);
+  //     }} />
+  //   );
+  // }
   
+  handleClickCallback = ({ item }) => {
+    console.log(`item click callback`);
+    this.props.selectItem(item);
+  }
+
   /* To show a single item detail */ 
   renderItemDetailView() {
     const id = this.state.itemSelected;
@@ -134,7 +122,7 @@ class ItemControl extends Component {
     this.props.itemList.map(item =>
       <Item item={item}
         key={item.id}
-        handleClickCallback={this.handleClickAll}
+        handleClickCallback={this.handleClickCallback}
         />)
     );
   }
@@ -165,11 +153,12 @@ class ItemControl extends Component {
       );
     } else if (itemList.length > 0) {
       return (
-        <div className="ItemView">
-          {this.renderItemList()}
-            
-        </div>
-      );
+        this.props.itemList.map(item =>
+          <Item item={item}
+            key={item.id}
+            handleClickCallback={this.handleClickCallback}
+            />)
+        );
     /* If itemList is empty */  
     } else {
       return (
@@ -186,7 +175,9 @@ const mapStateToProps = state => {
   return {
     itemList: state.itemList,
     handleClick: state.handleClick,
-    formShowing: state.formShowing
+    selectedItem: state.handleClick.selectedItem,
+    itemToEdit: state.handleClick.itemToEdit,
+    formShowing: state.formReducer.formShowing
   }
 }
 

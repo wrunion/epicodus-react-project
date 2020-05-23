@@ -17,7 +17,7 @@ const Item = (props) => {
       <div className="right floated content">
             <button 
               className="ui button basic"
-              onClick={() => this.props.selectItem()}>
+              onClick={() => props.handleClickCallback(props.item)}>
               Details
             </button>
           </div>

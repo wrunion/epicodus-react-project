@@ -17,7 +17,7 @@ function Form(props) {
 
   return (
     <div className="Form">
-      <form id={v4()} onSubmit={handleSubmit}>
+      <form id={v4()} onSubmit={handleSubmit} className="ui segment">
         <div className="inputField">
           <label>Item Name: <input type="text" name="itemName" id="itemName" defaultValue="Green Tea" /></label>
         </div>
