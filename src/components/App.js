@@ -4,6 +4,7 @@ import './App.css';
 import FormControl from './FormControl';
 import ItemList from './ItemList';
 import ItemDetails from './ItemDetails';
+import { updateItem, deleteItem, selectItem, editItem, purchaseItem } from './../actions';
 
 class App extends Component {
 
@@ -13,11 +14,11 @@ class App extends Component {
         <h1>App</h1>
         <FormControl />
         <ItemList items={this.props.items}/>
-        {this.props.selectedItem ? 
+        {this.props.selectedItem && this.props.itemToEdit ? 
           <ItemDetails 
             item={this.props.selectedItem}
             itemtoEdit={this.props.itemToEdit} />
-          : null }
+          : null}
       </div>
     );
   }
@@ -31,4 +32,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { updateItem, deleteItem, selectItem, editItem, purchaseItem })(App);

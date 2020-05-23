@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 class FormControl extends React.Component {
 
-  /* Callback to pass to Form component. Allows FormControl to handle interfacing with Redux on Form component's behalf */
   handleCancelClick = () => {
     this.props.hideForm(); 
   }

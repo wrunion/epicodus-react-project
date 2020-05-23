@@ -5,16 +5,18 @@ import { updateItem, deleteItem, selectItem, editItem, purchaseItem } from './..
 function ItemDetails(props) {
   
     const { item } = props;
-
+console.log(props)
     return (
       <div className="ItemDetails" key={item.id}>
         {item.itemName}:  ${item.price} <br />
         Available: {item.available} | <br/>
-        Item To Edit is: {props.itemToEdit} <br />
+        {props.itemToEdit ? <p>Item To Edit is: {props.itemToEdit}</p>
+        : null} <br />
         {/* <button onClick={() => props.deleteItem(item)}>Purchase</button> */}  
         {/* <button onClick={() => props.updateItem(item)}>Edit</button> */}
         {/* <button onClick={() => {props.deleteItem(item); props.selectItem(null) }}>Delete</button> */}
         <button onClick={()=> props.editItem(item)}>Edit</button>
+        
         {/* <button onClick={()=> props.purchaseItem(item)}>Purchase</button> */}
       </div>
     )
@@ -24,7 +26,7 @@ function ItemDetails(props) {
 // const mapStateToProps = state => {
 //   return {
 //     selectedItem: state.selectedItemReducer.selectedItem,
-//     itemToEdit: state.selectedItemReducer.itemToEdit
+//     itemToEdit: state.selectedItemReducer.itemToEdit 
 //   }
 // }
 
