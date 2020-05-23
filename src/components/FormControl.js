@@ -1,8 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { showForm, hideForm } from './../actions';
+import { connect } from 'react-redux';import PropTypes from 'prop-types';
+
+import { showForm, hideForm, addItem } from './../actions';
 import Form from './Form';
-import PropTypes from 'prop-types';
 
 class FormControl extends React.Component {
 
@@ -10,11 +10,17 @@ class FormControl extends React.Component {
     this.props.hideForm(); 
   }
 
+  handleSubmit = (item) => {
+    this.props.addItem(item);
+  }
+
   render() {
     return ( 
       <div className="FormControl">
         {this.props.formShowing
-        ? <Form handleCancelClick={this.handleCancelClick}/> 
+        ? <Form 
+            handleCancelClick={this.handleCancelClick}
+            handleSubmitCallback={this.handleSubmit}/> 
         : <button 
             onClick={() => this.props.showForm()}>Add Item</button>}
       </div>
@@ -33,4 +39,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { showForm, hideForm }) (FormControl);
+export default connect(mapStateToProps, { showForm, hideForm, addItem }) (FormControl);

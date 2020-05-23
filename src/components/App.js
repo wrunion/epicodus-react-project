@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemControl from './ItemControl';
 import ItemDetail from './ItemDetail';
-import AddItem from './AddItem';
+import FormControl from './FormControl';
 import Footer from './Footer';
 import './App.css';
 
@@ -17,7 +17,7 @@ function App() {
           </div>
           <div className="column eight wide">
             <ItemDetail />
-            <AddItem />
+            <FormControl />
           </div>
         </div>
       </div>
