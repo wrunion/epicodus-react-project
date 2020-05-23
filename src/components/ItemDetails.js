@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateItem, deleteItem } from './../actions';
+import { updateItem, deleteItem, selectItem } from './../actions';
 
 function ItemDetails(props) {
 
@@ -11,7 +11,7 @@ function ItemDetails(props) {
         {item.itemName}:  ${item.price}
         {/* <button onClick={() => props.deleteItem(item)}>Purchase</button> */}  
         {/* <button onClick={() => props.updateItem(item)}>Edit</button> */}
-        <button onClick={() => props.deleteItem(item)}>Delete</button>
+        <button onClick={() => {props.deleteItem(item); props.selectItem(null) }}>Delete</button>
       </div>
     )
   }
@@ -24,4 +24,4 @@ function ItemDetails(props) {
 //   }
 // }
 
-export default connect(null, { updateItem, deleteItem })(ItemDetails);
+export default connect(null, { updateItem, deleteItem, selectItem })(ItemDetails);
