@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux';import PropTypes from 'prop-types';
-
 import { showForm, hideForm, addItem } from './../actions';
 import Form from './Form';
 
@@ -9,7 +8,7 @@ class FormControl extends React.Component {
   handleCancelClick = () => {
     this.props.hideForm(); 
   }
-
+  
   handleSubmit = (item) => {
     this.props.addItem(item);
   }
@@ -22,7 +21,9 @@ class FormControl extends React.Component {
             handleCancelClick={this.handleCancelClick}
             handleSubmitCallback={this.handleSubmit}/> 
         : <button 
-            onClick={() => this.props.showForm()}>Add Item</button>}
+            onClick={() => this.props.showForm()}
+            className="ui button small basic green fluid">
+            Add Item</button>}
       </div>
     );
   }

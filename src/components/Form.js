@@ -12,6 +12,7 @@ function Form(props) {
       available: parseInt(e.target.available.value), 
       price: parseInt(e.target.price.value), 
       id: e.target.id});
+    props.handleCancelClick();  
   } 
 
   return (
@@ -30,7 +31,7 @@ function Form(props) {
           <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" /></label>
         </div>
         <button type="submit" className="ui button mini green basic">Add Item</button>
-        <button type="button" onClick={props.handleCancelClick}className="ui button mini grey basic">Cancel</button>
+        <button type="button" className="ui button mini grey basic" onClick={props.handleCancelClick}>Cancel</button>
       </form>
     </div>
   );
