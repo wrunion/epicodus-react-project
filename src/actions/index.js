@@ -19,10 +19,10 @@ export const deleteItem = (item) => {
 };
 
 /* Actions for handleClickReducer */
-export const cancelClick = (event) => {
+export const selectItemToEdit = (item) => {
   return {
-    type: 'CANCEL_CLICK',
-    data: event
+    type: 'SELECT_ITEM_TO_EDIT',
+    data: item
   };
 };
 export const selectItem = (item) => {
@@ -31,15 +31,10 @@ export const selectItem = (item) => {
     data: item
   };
 };
-export const enterEditMode = () => {
-  return {
-    type: 'ENTER_EDIT_MODE'
-  };
-};
-export const toggleForm = () => {
-  return {
-    type: 'TOGGLE_FORM'
-  };
-};
 
-// toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem
+/* itemListReducer actions:
+addItem, editItem, deleteItem */
+
+/* handleClick reducer actions: 
+selectItemToEdit, selectItem */
+
