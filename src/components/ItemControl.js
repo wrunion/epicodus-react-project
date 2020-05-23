@@ -6,18 +6,19 @@ import { connect } from 'react-redux';
 import initialItemList from '../itemlist.json';
 import { toggleForm, enterEditMode, selectItem, cancelClick, deleteItem, addItem, editItem } from './../actions';
 
+/* formReducer actions: hideForm, showForm */
+
+/* itemListReducer actions:
+addItem, editItem, deleteItem */
+
+/* handleClick reducer actions: 
+selectItemToEdit, selectItem */
+
 class ItemControl extends Component {
-  // state = {
-  //   itemSelected: null
-  // }
 
   componentDidMount = () => {
     initialItemList.itemList.forEach((item) => {
-      const action = {
-        type: 'ADD_ITEM', 
-        data: item
-      }
-      this.props.dispatch(action);
+      this.props.addItem(item)
     });
   }
 
@@ -188,4 +189,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ItemControl);
+export default connect(mapStateToProps, { addItem })(ItemControl);

@@ -52,4 +52,3 @@ addItem, editItem, deleteItem */
 
 /* handleClick reducer actions: 
 selectItemToEdit, selectItem */
-
