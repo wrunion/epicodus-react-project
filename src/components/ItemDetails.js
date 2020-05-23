@@ -8,13 +8,14 @@ function ItemDetails(props) {
 
     return (
       <div className="ItemDetails" key={item.id}>
-        {item.itemName}:  ${item.price}
-        Available: {item.available}
+        {item.itemName}:  ${item.price} <br />
+        Available: {item.available} | <br/>
+        Item To Edit is: {props.itemToEdit} <br />
         {/* <button onClick={() => props.deleteItem(item)}>Purchase</button> */}  
         {/* <button onClick={() => props.updateItem(item)}>Edit</button> */}
         {/* <button onClick={() => {props.deleteItem(item); props.selectItem(null) }}>Delete</button> */}
         <button onClick={()=> props.editItem(item)}>Edit</button>
-        <button onClick={()=> props.purchaseItem(item)}>Purchase</button>
+        {/* <button onClick={()=> props.purchaseItem(item)}>Purchase</button> */}
       </div>
     )
   }

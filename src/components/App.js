@@ -14,10 +14,12 @@ class App extends Component {
         <FormControl />
         <ItemList items={this.props.items}/>
         {this.props.selectedItem ? 
-          <ItemDetails item={this.props.selectedItem} />
+          <ItemDetails 
+            item={this.props.selectedItem}
+            itemtoEdit={this.props.itemToEdit} />
           : null }
       </div>
-    )
+    );
   }
 }
 
