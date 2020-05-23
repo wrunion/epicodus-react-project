@@ -27,7 +27,7 @@ export const selectItemToEdit = (item) => {
 };
 export const selectItem = (item) => {
   return {
-    type: 'ITEM_SELECTED',
+    type: 'SELECT_ITEM',
     data: item
   };
 };
