@@ -32,6 +32,21 @@ export const selectItem = (item) => {
   };
 };
 
+/* Actions for formReducer */
+export const showForm = () => {
+  return {
+    type: 'SHOW_FORM'
+  };
+};
+
+export const hideForm = () => {
+  return {
+    type: 'HIDE_FORM'
+  };
+};
+
+/* formReducer actions: hideForm, showForm */
+
 /* itemListReducer actions:
 addItem, editItem, deleteItem */
 
