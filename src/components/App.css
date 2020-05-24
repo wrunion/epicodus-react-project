@@ -15,12 +15,16 @@
   margin-bottom: 1.5em;
 }
 
-.Form {
+/* .Form {
   padding: 10px;
-}
+}*/
+
+/* .TeaForm {
+
+} */
 
 .Form div {
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .Item {
