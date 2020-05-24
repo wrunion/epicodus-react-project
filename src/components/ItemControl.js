@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-// import ItemDetailView from './ItemDetailView';
-import Item from './Item';
-import OldItemDisplayMode from './OldItemDisplayMode';
 import { connect } from 'react-redux';
+// import Item from './Item';
+import OldItemDisplayMode from './OldItemDisplayMode';
 import initialItemList from '../itemlist.json';
 import { addItem, editItem, deleteItem, selectItemToEdit, selectItem } from './../actions';
 
@@ -22,10 +21,6 @@ class ItemControl extends Component {
     });
   }
 
-  handleClickCallback = (item) => {
-    this.props.selectItem(item);
-  }
-
   /* To show a single item detail */ 
   // renderItemDetailView() {
   //   const id = this.state.itemSelected;
@@ -39,6 +34,15 @@ class ItemControl extends Component {
   //   );
   // }
   
+  purchaseClick = (item) => {
+    console.log(item)
+  }
+  deleteClick = (item) => {
+    console.log(item);
+  }
+  detailsClick = (item) => {
+    this.props.selectItem(item);
+  }
 
   render() {
 
@@ -49,7 +53,9 @@ class ItemControl extends Component {
         this.props.itemList.map(item =>
           <OldItemDisplayMode item={item}
             key={item.id}
-            handleClickCallback={this.handleClickCallback}
+            purchaseClickCallback={this.purchaseClick}
+            deleteClickCallback={this.deleteClick}
+            detailsClickCallback={this.detailsClick}
             />)
         );
     /* If itemList is empty */  
