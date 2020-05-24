@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './App.css';
 
 const ItemDetail = (props) => {
   /* If no item is selected */
@@ -12,7 +13,7 @@ const ItemDetail = (props) => {
     const { itemName, description } = props.item;
     
     return (
-      <React.Fragment>
+      <div className="ItemDetail ui segment">
         <h1>{itemName}</h1>
         <p><em>{description}</em></p>
         &#x2713; Gluten Free <br/>
@@ -21,7 +22,7 @@ const ItemDetail = (props) => {
         &#x2713; Fair Trade <br />
         <h5>Made in Oregon</h5>
         <button className="ui button mini grey basic" onClick={() => {props.handleClick()}}>Cancel</button>
-      </React.Fragment>
+      </div>
     );
   }
 }
