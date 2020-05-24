@@ -1,4 +1,4 @@
-export default(state={}, action) => {
+export default(state={selectedItem: null}, action) => {
   switch(action.type) {
     case 'SELECT_ITEM_TO_EDIT':
       return Object.assign({}, state, {itemToEdit: action.data} );

@@ -1,11 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ItemControl from './ItemControl';
 import ItemDetail from './ItemDetail';
 import FormControl from './FormControl';
 import Footer from './Footer';
 import './App.css';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <div className="Header">
@@ -16,14 +17,9 @@ function App() {
             <ItemControl />
           </div>
           <div className="column eight wide">
-            <ItemDetail />
+            <ItemDetail item={props.selectedItem}/>
             <FormControl />
           </div>
-        </div>
-      </div>
-      <div className="ui container grid">
-        <div className="column sixteen wide">
-
         </div>
       </div>
       <Footer />
@@ -31,4 +27,8 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { selectedItem: state.handleClick.selectedItem };
+}
+
+export default connect(mapStateToProps)(App);
