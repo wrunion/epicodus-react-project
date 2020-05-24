@@ -9,12 +9,12 @@ import './App.css';
 
 function App(props) {
   return (
-    <div className="App">
+    <div className="App scroll">
       <div className="Header">
         <h1>AunTea's Organics</h1></div>
-      <div className="ui container grid">
-        <div className="ui row">
-          <div className="column eight wide">
+      <div className="ui container grid scroll">
+        <div className="ui row scroll">
+          <div className="column eight wide scroll" id="scroll-container">
             <ItemControl />
           </div>
           <div className="column eight wide">

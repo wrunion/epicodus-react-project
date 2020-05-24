@@ -1,9 +1,9 @@
 .App {
   text-align: center;
-  border: 1px #21ba45 solid;
+  /* border: 1px #21ba45 solid;
   border-radius: 10px;
   margin: 1em;
-  padding: .5em;
+  padding: .5em; */
 }
 
 .App a:link, a:visited {
@@ -53,7 +53,19 @@
   margin: 5em;
 }
 
-.scroll-container {
+.scroll-box {
   overflow-y: auto;
   height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}
+
+#scroll-container {
+  height: 72.5vh;
+}
+
+html, body {
+  height: 90%;
 }

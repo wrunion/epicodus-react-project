@@ -37,7 +37,7 @@ class ItemControl extends Component {
   
     if (itemList.length > 0) {
       return (
-        <div className="ItemControl scroll-container">
+        <div className="ItemControl scroll-box">
         {this.props.itemList.map(item =>
           <Item item={item}
             key={item.id}
