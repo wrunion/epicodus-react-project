@@ -6,7 +6,9 @@ const ItemDetail = (props) => {
   /* If no item is selected */
   if (props.item === null) {
     return (
-      <p>Choose an item for a detailed view</p>
+      <div className="NoItemDisplay ui segment">
+        <p>Choose an item for a detailed view</p>
+      </div>
     );
   } else {
     /* Grab item properties */
