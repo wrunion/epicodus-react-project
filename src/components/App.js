@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { unselectItem } from './../actions';
 import ItemControl from './ItemControl';
 import ItemDetail from './ItemDetail';
 import FormControl from './FormControl';
@@ -17,7 +18,8 @@ function App(props) {
             <ItemControl />
           </div>
           <div className="column eight wide">
-            <ItemDetail item={props.selectedItem}/>
+            <ItemDetail item={props.selectedItem}
+              handleClick={() => props.unselectItem()}/>
             <FormControl />
           </div>
         </div>
@@ -28,7 +30,10 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { selectedItem: state.handleClick.selectedItem };
+  return { 
+    selectedItem: state.handleClick.selectedItem, 
+    detailView: state.handleClick.detailView
+  };
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { unselectItem })(App);

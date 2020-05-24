@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 const ItemDetail = (props) => {
   /* If no item is selected */
@@ -9,22 +9,24 @@ const ItemDetail = (props) => {
     );
   } else {
     /* Grab item properties */
-    const { itemName, description, price, available } = props;
+    const { itemName, description, price, available } = props.item;
     
     return (
       <React.Fragment>
         <h1>{itemName}</h1>
         <p><em>{description}</em></p>
         <p>Price: ${price} | Available: {available}</p>
-        <button className="ui button mini green basic">Add To Cart</button>
-        <button className="ui button mini grey basic">Cancel</button>
+        {/* <button className="ui button mini green basic">Add To Cart</button> */}
+        <button className="ui button mini grey basic" onClick={() => {props.handleClick()}}>Cancel</button>
       </React.Fragment>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return { selectedItem: state.handleClick.selectedItem };
-}
+export default ItemDetail;
 
-export default connect(mapStateToProps)(ItemDetail);
+// const mapStateToProps = (state) => {
+//   return { selectedItem: state.handleClick.selectedItem };
+// }
+
+// export default connect(mapStateToProps)(ItemDetail);

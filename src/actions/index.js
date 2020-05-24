@@ -34,6 +34,18 @@ export const selectItem = (item) => {
   };
 };
 
+export const hideDetails = () => {
+  return {
+    type: 'HIDE_DETAILS'
+  }
+}
+
+export const unselectItem = () => {
+  return {
+    type: 'UNSELECT_ITEM'
+  }
+}
+
 /* Actions for formReducer */
 export const showForm = () => {
   return {
