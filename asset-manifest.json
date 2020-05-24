@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/epicodus-react-project/static/css/main.b2e9451c.chunk.css",
+    "main.css": "/epicodus-react-project/static/css/main.bd1a3f1a.chunk.css",
     "main.js": "/epicodus-react-project/static/js/main.5600e5e1.chunk.js",
     "main.js.map": "/epicodus-react-project/static/js/main.5600e5e1.chunk.js.map",
     "runtime-main.js": "/epicodus-react-project/static/js/runtime-main.c4a759a1.js",
@@ -8,15 +8,15 @@
     "static/js/2.392abd15.chunk.js": "/epicodus-react-project/static/js/2.392abd15.chunk.js",
     "static/js/2.392abd15.chunk.js.map": "/epicodus-react-project/static/js/2.392abd15.chunk.js.map",
     "index.html": "/epicodus-react-project/index.html",
-    "precache-manifest.a87ae4befccbf10b38467d7a1a01d024.js": "/epicodus-react-project/precache-manifest.a87ae4befccbf10b38467d7a1a01d024.js",
+    "precache-manifest.ad77eb72e877f89a113d8939ac6a9998.js": "/epicodus-react-project/precache-manifest.ad77eb72e877f89a113d8939ac6a9998.js",
     "service-worker.js": "/epicodus-react-project/service-worker.js",
-    "static/css/main.b2e9451c.chunk.css.map": "/epicodus-react-project/static/css/main.b2e9451c.chunk.css.map",
+    "static/css/main.bd1a3f1a.chunk.css.map": "/epicodus-react-project/static/css/main.bd1a3f1a.chunk.css.map",
     "static/js/2.392abd15.chunk.js.LICENSE.txt": "/epicodus-react-project/static/js/2.392abd15.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c4a759a1.js",
     "static/js/2.392abd15.chunk.js",
-    "static/css/main.b2e9451c.chunk.css",
+    "static/css/main.bd1a3f1a.chunk.css",
     "static/js/main.5600e5e1.chunk.js"
   ]
 }
