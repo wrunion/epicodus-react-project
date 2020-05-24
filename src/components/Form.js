@@ -18,7 +18,6 @@ function Form(props) {
   return (
     <div className="Form">
       <form id={v4()} onSubmit={handleSubmit} className="ui small form segment">
-        <h3>Add Item</h3>
         <div className="inputField inline field">
           <label>Item Name:</label>
           <input type="text" name="itemName" id="itemName" defaultValue="Green Tea" />
