@@ -17,19 +17,23 @@ function Form(props) {
 
   return (
     <div className="Form">
-      <form id={v4()} onSubmit={handleSubmit} className="ui segment TeaForm">
+      <form id={v4()} onSubmit={handleSubmit} className="ui small form segment">
         <h3>Add Item</h3>
-        <div className="inputField">
-          <label>Item Name: <input type="text" name="itemName" id="itemName" defaultValue="Green Tea" /></label>
+        <div className="inputField inline field">
+          <label>Item Name:</label>
+          <input type="text" name="itemName" id="itemName" defaultValue="Green Tea" />
         </div>
-        <div className="inputField">
-          <label>Description: <input type="text" name="description" id="description" defaultValue="Healthy and Delicious" /></label>
+        <div className="inputField inline field">
+          <label>Description:</label>
+          <input type="text" name="description" id="description" defaultValue="Healthy and Delicious" />
         </div>
-        <div className="inputField">
-          <label>Price: <input type="number" name="price" price="price" defaultValue="23" min={0}/></label>
+        <div className="inputField inline field">
+          <label>Price:</label>
+          <input type="number" name="price" price="price" defaultValue={15} min={0}/>
         </div>
-        <div className="inputField">
-          <label>Available: <input type="number" name="available" price="available" min={0} defaultValue="100" /></label>
+        <div className="inputField inline field">
+          <label>Available: </label>
+          <input type="number" name="available" price="available" min={0} defaultValue={25} />
         </div>
         <button type="submit" className="ui button mini green basic">Add Item</button>
         <button type="button" className="ui button mini grey basic" onClick={props.handleCancelClick}>Cancel</button>
