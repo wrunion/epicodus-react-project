@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Item from './Item';
 import initialItemList from '../itemlist.json';
-import { addItem, deleteItem, selectItem } from './../actions';
+import { addItem, deleteItem, selectItem, editItem } from './../actions';
 
 class ItemControl extends Component {
 
@@ -15,7 +15,11 @@ class ItemControl extends Component {
 
   /* Callback functions for the Item components */
   purchaseClick = (item) => {
-    console.log(item)
+    const updatedItem = { ...item};
+    updatedItem.available > 1 ? 
+      updatedItem.available = updatedItem.available -1
+      : updatedItem.available = 0;   
+    this.props.editItem(updatedItem);
   }
 
   deleteClick = (item) => {
@@ -57,4 +61,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addItem, deleteItem, selectItem })(ItemControl);
+export default connect(mapStateToProps, { addItem, deleteItem, selectItem, editItem })(ItemControl);
