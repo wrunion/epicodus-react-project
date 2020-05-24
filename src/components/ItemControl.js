@@ -38,7 +38,7 @@ class ItemControl extends Component {
     console.log(item)
   }
   deleteClick = (item) => {
-    console.log(item);
+    this.props.deleteItem(item);
   }
   detailsClick = (item) => {
     this.props.selectItem(item);
