@@ -24,6 +24,7 @@ class ItemControl extends Component {
 
   deleteClick = (item) => {
     this.props.deleteItem(item);
+    this.props.selectItem(null);
   }
 
   detailsClick = (item) => {

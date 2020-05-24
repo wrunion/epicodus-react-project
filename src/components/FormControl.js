@@ -31,6 +31,8 @@ class FormControl extends React.Component {
 
 FormControl.propTypes = {
   showForm: PropTypes.func,
+  hideForm: PropTypes.func,
+  addItem: PropTypes.func,
   formShowing: PropTypes.bool
 };
 

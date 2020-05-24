@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ItemDetail = (props) => {
   /* If no item is selected */
@@ -24,5 +25,12 @@ const ItemDetail = (props) => {
     );
   }
 }
+
+ItemDetail.propTypes = {
+  item: PropTypes.object,
+  itemName: PropTypes.string,
+  description: PropTypes.string,
+  handleClick: PropTypes.func
+} 
 
 export default ItemDetail;
