@@ -31,8 +31,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return { 
-    selectedItem: state.handleClick.selectedItem, 
-    detailView: state.handleClick.detailView
+    selectedItem: state.handleClick.selectedItem
   };
 }
 

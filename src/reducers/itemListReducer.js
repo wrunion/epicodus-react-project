@@ -3,7 +3,7 @@ export default (state = [], action) => {
 
   switch(type) {
     case "ADD_ITEM":
-      return [...state, data];
+      return [data, ...state];
     case 'EDIT_ITEM':
       return state.map(e => e.id === data.id ? data : e);
     case 'DELETE_ITEM':
