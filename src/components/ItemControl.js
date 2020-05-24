@@ -37,13 +37,15 @@ class ItemControl extends Component {
   
     if (itemList.length > 0) {
       return (
-        this.props.itemList.map(item =>
+        <div className="ItemControl scroll-container">
+        {this.props.itemList.map(item =>
           <Item item={item}
             key={item.id}
             purchaseClickCallback={this.purchaseClick}
             deleteClickCallback={this.deleteClick}
             detailsClickCallback={this.detailsClick}
-            />)
+            />)}
+        </div>    
         );
     /* If itemList is empty */  
     } else {

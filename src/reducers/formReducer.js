@@ -1,10 +1,12 @@
+import constants from './../actions/constants';
+
 export default(state={formShowing: false}, action) => {
   const { type } = action;
 
   switch(type) {
-    case 'SHOW_FORM':
+    case constants.SHOW_FORM:
       return { formShowing: true };
-    case 'HIDE_FORM':
+    case constants.HIDE_FORM:
       return { formShowing: false};  
     default:
       return state;  

@@ -52,3 +52,8 @@
 .ItemDetail {
   margin: 5em;
 }
+
+.scroll-container {
+  overflow-y: auto;
+  height: 100%;
+}
