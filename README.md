@@ -24,6 +24,7 @@ You can see the program in action [here](https://wrunion.github.io/epicodus-reac
 * HTML/CSS/JavaScript
 * Webpack
 * React
+* Redux
 
 ### Contact
 You're welcome to submit a pull request if you find any issues.
