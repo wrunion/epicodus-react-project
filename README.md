@@ -5,10 +5,17 @@
 ### Description
 _An interactive menu for a fictional tea shop, powered by React. Created to practice passing props and managing state. An Epicodus independent project._
 
+### Demo
+
+Use this app online at [wrunion.github.io/epicodus-react-project](https://wrunion.github.io/epicodus-react-project/)
+<p align="center">
+<img src="aunteas-organics.gif" alt="animated demo of tea shop purchasing software" />
+</p>
 
 ### Component Diagram
-
-![alt text](ComponentDiagram.png "React Component Diagram")
+<p align="center">
+<img src="ComponentDiagram.png" alt="application component diagram" width="550px" />
+</p>
 
 ### Instructions
 
